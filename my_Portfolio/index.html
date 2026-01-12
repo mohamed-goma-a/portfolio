@@ -1,0 +1,575 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Data Analyst Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-black text-white antialiased">
+  <!-- Ambient glow nodes (positioned behind sections) -->
+  <div class="ambient-glow"></div>
+
+  <!-- Header / Navbar -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav
+      class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 mt-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-brand/20 text-brand">
+          <!-- Logo icon -->
+          <i data-lucide="pie-chart" class="w-5 h-5"></i>
+        </span>
+        <span class="font-outfit font-extrabold tracking-wide">Mohamed Gomaa</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link contact-btn">Contact</a>
+      </div>
+      <button id="hamburger"
+        class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 transition">
+        <i data-lucide="menu" class="w-5 h-5"></i>
+      </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden mx-4 mt-2 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+      <div class="px-4 py-4 grid gap-3 text-sm">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 pt-28 space-y-28 overflow-x-hidden">
+<!-- Hero -->
+<section id="hero" class="flex flex-col md:flex-row items-center gap-10 reveal">
+
+  <!-- Image -->
+  <div class="flex-1 flex justify-center md:justify-end order-1 md:order-2">
+    <div class="hero-img-wrapper bg-[#0a0a0a] shadow-xl animate-float ring-1 ring-white/5 rounded-2xl overflow-hidden">
+      <img src="assets/imgs/1.jpg" alt="Data analyst portrait"
+           class="w-full h-auto max-w-[260px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] object-cover rounded-2xl" />
+    </div>
+  </div>
+
+  <!-- Text -->
+  <div class="flex-1 relative space-y-6 text-center md:text-left order-2 md:order-1">
+
+    <!-- Heading -->
+    <h1 class="font-outfit font-extrabold leading-tight
+               text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+      Hi, I’m
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-dark">
+        Mohamed Gomaa
+      </span>
+      <br />
+      Data Analyst
+    </h1>
+
+    <!-- Description -->
+    <p class="text-gray-300 max-w-xl mx-auto md:mx-0 text-xs sm:text-sm md:text-base lg:text-lg">
+      I specialize in transforming raw data into actionable insights.
+      Skilled in Python, SQL, Excel, and Power BI, I help businesses make
+      confident, data-driven decisions through clear analysis and impactful
+      storytelling.
+    </p>
+
+    <!-- Badge -->
+    <span
+      class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10
+             text-[10px] sm:text-xs md:text-sm lg:text-base w-fit mx-auto md:mx-0">
+      <span class="inline-flex w-2 h-2 rounded-full bg-green-500"></span>
+      Available for Data Consulting
+    </span>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row sm:flex-wrap items-center md:items-start gap-3 w-full">
+
+      <!-- Contact -->
+      <a href="#contact"
+         class="w-full sm:w-auto justify-center
+                inline-flex items-center gap-2
+                px-5 py-3
+                text-xs sm:text-sm md:text-base lg:text-lg
+                rounded-full
+                bg-white text-black font-medium
+                hover:opacity-90 transition">
+        Get in touch
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+
+      <!-- Portfolio -->
+      <a href="#projects"
+         class="w-full sm:w-auto justify-center
+                inline-flex items-center gap-2
+                px-5 py-3
+                text-xs sm:text-sm md:text-base lg:text-lg
+                rounded-full
+                border border-white/20 text-white
+                hover:border-brand hover:shadow-[0_0_0_2px_rgba(139,92,246,0.3)]
+                transition">
+        View portfolio
+        <i data-lucide="eye" class="w-4 h-4"></i>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/mohamed-goma-a" target="_blank"
+         class="w-full sm:w-auto justify-center
+                inline-flex items-center gap-2
+                px-5 py-3
+                text-xs sm:text-sm md:text-base lg:text-lg
+                rounded-full
+                border border-white/20 text-white
+                hover:border-brand hover:shadow-[0_0_0_2px_rgba(139,92,246,0.3)]
+                transition">
+        GitHub
+        <i data-lucide="github" class="w-4 h-4"></i>
+      </a>
+
+    </div>
+  </div>
+
+</section>
+        
+
+
+    <!-- Education & Certifications -->
+    <!-- ====================== Education ====================== -->
+<section id="education" class="space-y-8 reveal">
+  <h2 class="font-outfit font-bold text-xl sm:text-2xl md:text-3xl">Education & Certifications</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+    <!-- NTI Certificate -->
+    <article class="card group rounded-xl hover:shadow-purple transition-shadow duration-300">
+      <div class="overflow-hidden rounded-lg border border-white/10">
+        <img src="assets/Certifications/nti.png" alt="NTI Certificate"
+          class="w-full h-48 object-cover group-hover:scale-[1.02] transition cursor-pointer certificate-img"
+          data-src="assets/Certifications/nti.png" />
+      </div>
+
+      <div class="mt-4 flex items-center gap-3">
+        <div class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand/10 text-brand">
+          <i data-lucide="badge-check" class="w-5 h-5"></i>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-sm sm:text-base md:text-lg font-semibold">Google Data Analytics Certificate</span>
+            <span class="px-2 py-0.5 text-[10px] sm:text-xs md:text-sm rounded-full bg-white/5 text-gray-300">2024 — 2025</span>
+          </div>
+          <p class="mt-2 italic text-xs sm:text-sm md:text-base text-gray-300">
+            Hands-on projects covering SQL, R, dashboards, and communication.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-col sm:flex-row gap-3">
+        <a href="#"
+   class="inline-flex whitespace-nowrap items-center gap-2 
+          px-4 py-2 text-xs sm:text-sm md:text-base 
+          rounded-full bg-brand text-white hover:bg-brand-dark transition 
+          justify-center sm:justify-start min-w-[150px]">
+  <i data-lucide="linkedin" class="w-4 h-4"></i>
+  View on LinkedIn
+</a>
+
+        <button
+          class="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm md:text-base rounded-full border border-white/20 text-white hover:border-brand hover:shadow-[0_0_0_2px_rgba(139,92,246,0.3)] transition view-btn justify-center sm:justify-start"
+          data-src="assets/Certifications/nti.png">
+          <i data-lucide="eye" class="w-4 h-4"></i>
+          View
+        </button>
+      </div>
+    </article>
+
+    <!-- NVIDIA Certificate -->
+    <article class="card group rounded-xl hover:shadow-purple transition-shadow duration-300">
+      <div class="overflow-hidden rounded-lg border border-white/10">
+        <img src="assets/Certifications/nvidia.png" alt="NVIDIA Certificate"
+          class="w-full h-48 object-cover group-hover:scale-[1.02] transition cursor-pointer certificate-img"
+          data-src="assets/Certifications/nvidia.png" />
+      </div>
+
+      <div class="mt-4 flex items-center gap-3">
+        <div class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand/10 text-brand">
+          <i data-lucide="badge-check" class="w-5 h-5"></i>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-sm sm:text-base md:text-lg font-semibold">Google Data Analytics Certificate</span>
+            <span class="px-2 py-0.5 text-[10px] sm:text-xs md:text-sm rounded-full bg-white/5 text-gray-300">2024 — 2025</span>
+          </div>
+          <p class="mt-2 italic text-xs sm:text-sm md:text-base text-gray-300">
+            Hands-on projects covering SQL, R, dashboards, and communication.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-col sm:flex-row gap-3">
+        <a href="#"
+          class="inline-flex whitespace-nowrap items-center gap-2 
+          px-4 py-2 text-xs sm:text-sm md:text-base 
+          rounded-full bg-brand text-white hover:bg-brand-dark transition 
+          justify-center sm:justify-start min-w-[150px]">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+          View on LinkedIn
+        </a>
+
+        <button
+          class="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm md:text-base rounded-full border border-white/20 text-white hover:border-brand hover:shadow-[0_0_0_2px_rgba(139,92,246,0.3)] transition view-btn justify-center sm:justify-start"
+          data-src="assets/Certifications/nvidia.png">
+          <i data-lucide="eye" class="w-4 h-4"></i>
+          View
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <!-- Modal -->
+  <div id="imgModal"
+    class="hidden fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50">
+    <button id="closeBtn"
+      class="absolute top-6 right-6 text-white text-3xl bg-none border-none cursor-pointer">&times;</button>
+    <img id="modalImg" src="" alt="Certificate full view"
+      class="max-h-[85vh] max-w-[90vw] rounded-xl border border-white/10 shadow-lg" />
+  </div>
+</section>
+<!-- ====================== Skills ====================== -->
+<section id="skills" class="reveal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- العنوان -->
+    <div class="text-center mb-8">
+      <h2 class="font-outfit font-bold text-2xl">Technical Expertise</h2>
+      <p class="mt-2 text-gray-400 leading-relaxed">
+        Practical tools I use to clean, model, visualize, and deploy insights.
+      </p>
+    </div>
+
+    <!-- البطاقات -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- SQL -->
+      <div class="skill-badge group flex flex-col justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 text-left h-full">
+        <div class="flex flex-row items-start gap-3 w-full">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 text-brand flex-shrink-0">
+            <i data-lucide="database" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left w-full">
+            <div class="font-medium text-white">SQL</div>
+            <div class="text-sm text-gray-400">SQL Server, BigQuery</div>
+          </div>
+        </div>
+        <div class="w-full bg-white/10 rounded-full h-2 mt-auto">
+          <div class="bg-brand h-2 rounded-full" style="width: 85%;"></div>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="skill-badge group flex flex-col justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 text-left h-full">
+        <div class="flex flex-row items-start gap-3 w-full">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 text-brand flex-shrink-0">
+            <i data-lucide="code" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left w-full">
+            <div class="font-medium text-white">Python</div>
+            <div class="text-sm text-gray-400">Pandas, NumPy, scikit-learn, Matplotlib, Seaborn</div>
+          </div>
+        </div>
+        <div class="w-full bg-white/10 rounded-full h-2 mt-auto">
+          <div class="bg-brand h-2 rounded-full" style="width: 95%;"></div>
+        </div>
+      </div>
+
+      <!-- Excel -->
+      <div class="skill-badge group flex flex-col justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 text-left h-full">
+        <div class="flex flex-row items-start gap-3 w-full">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 text-brand flex-shrink-0">
+            <i data-lucide="table" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left w-full">
+            <div class="font-medium text-white">Excel</div>
+            <div class="text-sm text-gray-400">Pivot Tables, Power Query, Dashboards</div>
+          </div>
+        </div>
+        <div class="w-full bg-white/10 rounded-full h-2 mt-auto">
+          <div class="bg-brand h-2 rounded-full" style="width: 80%;"></div>
+        </div>
+      </div>
+
+      <!-- Power BI -->
+      <div class="skill-badge group flex flex-col justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 text-left h-full">
+        <div class="flex flex-row items-start gap-3 w-full">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 text-brand flex-shrink-0">
+            <i data-lucide="line-chart" class="w-6 h-6"></i>
+          </div>
+          <div class="text-left w-full">
+            <div class="font-medium text-white">Power BI</div>
+            <div class="text-sm text-gray-400">DAX, Power Query, KPIs</div>
+          </div>
+        </div>
+        <div class="w-full bg-white/10 rounded-full h-2 mt-auto">
+          <div class="bg-brand h-2 rounded-full" style="width: 75%;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ====================== Services ====================== -->
+<section id="services" class="reveal mt-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- العنوان -->
+    <div class="text-center mb-12">
+      <h2 class="font-outfit font-bold text-2xl">Services I Offer</h2>
+      <p class="mt-2 text-gray-400">
+        Practical solutions to help businesses make data-driven decisions and gain insights.
+      </p>
+    </div>
+
+    <!-- الشبكة -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Service Card 1 -->
+      <div
+        class="service-card group p-6 bg-white/10 rounded-xl 
+               hover:scale-105 hover:-translate-y-1 
+               transition-all duration-300 
+               shadow-sm hover:shadow-[0_10px_25px_rgba(139,92,246,0.4)] text-left">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand/10 text-brand mb-4">
+          <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-medium text-lg mb-2 text-white group-hover:text-brand">Data Analysis</h3>
+        <p class="text-gray-400 text-sm">
+          Explore and analyze datasets to uncover actionable insights using Python, Pandas, and Excel.
+        </p>
+      </div>
+
+      <!-- Service Card 2 -->
+      <div
+        class="service-card group p-6 bg-white/10 rounded-xl 
+               hover:scale-105 hover:-translate-y-1 
+               transition-all duration-300 
+               shadow-sm hover:shadow-[0_10px_25px_rgba(139,92,246,0.4)] text-left">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand/10 text-brand mb-4">
+          <i data-lucide="pie-chart" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-medium text-lg mb-2 text-white group-hover:text-brand">Dashboards & Reporting</h3>
+        <p class="text-gray-400 text-sm">
+          Design interactive dashboards and reports in Power BI & Excel to track KPIs and business performance.
+        </p>
+      </div>
+
+      <!-- Service Card 3 -->
+      <div
+        class="service-card group p-6 bg-white/10 rounded-xl 
+               hover:scale-105 hover:-translate-y-1 
+               transition-all duration-300 
+               shadow-sm hover:shadow-[0_10px_25px_rgba(139,92,246,0.4)] text-left">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand/10 text-brand mb-4">
+          <i data-lucide="filter" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-medium text-lg mb-2 text-white group-hover:text-brand">Data Cleaning & Preprocessing</h3>
+        <p class="text-gray-400 text-sm">
+          Prepare and clean raw datasets to ensure accurate and reliable analysis results.
+        </p>
+      </div>
+
+      <!-- Service Card 4 -->
+      <div
+        class="service-card group p-6 bg-white/10 rounded-xl 
+               hover:scale-105 hover:-translate-y-1 
+               transition-all duration-300 
+               shadow-sm hover:shadow-[0_10px_25px_rgba(139,92,246,0.4)] text-left">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand/10 text-brand mb-4">
+          <i data-lucide="activity" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-medium text-lg mb-2 text-white group-hover:text-brand">KPI Tracking & Reporting</h3>
+        <p class="text-gray-400 text-sm">
+          Monitor key performance indicators to help businesses make informed decisions and improve performance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ====================== Projects ====================== -->
+<section id="projects" class="space-y-8 reveal">
+  <h2 class="font-outfit font-bold text-2xl">Selected Projects</h2>
+
+  <!-- الشبكة -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Project Card 1 -->
+    <article class="card group hover:shadow-purple transition-shadow duration-300">
+      <div class="overflow-hidden rounded-2xl border border-white/10">
+        <img src="assets/projects/sales.png" alt="Project visualization"
+          class="w-full h-44 object-cover group-hover:scale-[1.05] transition" />
+      </div>
+      <h3 class="mt-4 text-lg font-semibold">Walmart Sales Analysis — Power BI</h3>
+      <p class="mt-1 text-gray-400">
+        Analyzed Walmart sales data by exploring, cleaning, and modeling it in Power BI.
+        Built DAX measures (MoM, YoY) and interactive dashboards to show sales trends
+        and the impact of store type, holidays, and external factors.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="tag">Power BI</span>
+        <span class="tag">Power Query</span>
+        <span class="tag">DAX</span>
+        <span class="tag">Data Cleaning</span>
+      </div>
+      <div class="mt-4 flex items-center justify-end gap-3">
+        <a href="https://github.com/YOUR_GITHUB_PROJECT_LINK" target="_blank" aria-label="GitHub" class="icon-button">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/posts/mohamed-gomaa-481780375_dataabranalysis-powerabrbi-dashboard-activity-7394104392381112320-FCQn"
+          target="_blank" aria-label="External" class="icon-button">
+          <i data-lucide="external-link" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Project Card 2 -->
+    <article class="card group hover:shadow-purple transition-shadow duration-300">
+      <div class="overflow-hidden rounded-2xl border border-white/10">
+        <img src="assets/projects/hr.png" alt="HR Attrition Analysis Project"
+          class="w-full h-44 object-cover group-hover:scale-[1.05] transition" />
+      </div>
+      <h3 class="mt-4 text-lg font-semibold">HR Attrition Analysis — Power BI</h3>
+      <p class="mt-1 text-gray-400">
+        Analyzed HR attrition data by cleaning and modeling the dataset, creating
+        calculated columns and DAX measures, and building a dashboard showing how
+        income, satisfaction, job level, and department impact attrition rates.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="tag">Power BI</span>
+        <span class="tag">Power Query</span>
+        <span class="tag">DAX</span>
+        <span class="tag">Data Modeling</span>
+      </div>
+      <div class="mt-4 flex items-center justify-end gap-3">
+        <a href="https://github.com/YOUR_GITHUB_PROJECT_LINK" target="_blank" aria-label="GitHub" class="icon-button">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/posts/mohamed-gomaa-481780375_dashboard-powerbi-hranalysis-activity-7402077236121587712-Nk8s"
+          target="_blank" aria-label="External" class="icon-button">
+          <i data-lucide="external-link" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </article>
+
+    <!-- Project Card 3 -->
+    <article class="card group hover:shadow-purple transition-shadow duration-300">
+      <div class="overflow-hidden rounded-2xl border border-white/10">
+        <img src="assets/projects/suberstore.png" alt="Superstore Analysis Project"
+          class="w-full h-44 object-cover group-hover:scale-[1.05] transition" />
+      </div>
+      <h3 class="mt-4 text-lg font-semibold">Super Store Analysis — Power BI</h3>
+      <p class="mt-1 text-gray-400">
+        Explored Super Store data before building the dashboard, analyzing sales trends,
+        top segments, product performance, and geographic growth to extract meaningful insights.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="tag">Power BI</span>
+        <span class="tag">Power Query</span>
+        <span class="tag">DAX</span>
+        <span class="tag">Data Modeling</span>
+      </div>
+      <div class="mt-4 flex items-center justify-end gap-3">
+        <a href="https://github.com/YOUR_GITHUB_PROJECT_LINK" target="_blank" aria-label="GitHub" class="icon-button">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/posts/mohamed-gomaa-481780375_data-analysis-power-activity-7408251157447442432--5W6"
+          target="_blank" aria-label="External" class="icon-button">
+          <i data-lucide="external-link" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+   <!-- ====================== Contact ====================== -->
+<section id="contact" class="py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="font-outfit font-bold text-3xl mb-6">Get in Touch</h2>
+    <p class="text-gray-400 mb-12">
+      Feel free to reach out through email, LinkedIn, or WhatsApp. I’m always open to new opportunities and collaborations.
+    </p>
+
+    <!-- الشبكة -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Email -->
+      <a href="mailto:mhmdjmtabwbkr@gmail.com"
+        class="group card p-6 rounded-2xl hover:shadow-purple transition-shadow duration-300 flex flex-col items-center">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand/20 text-brand mb-4">
+          <i data-lucide="mail" class="w-7 h-7"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Email</h3>
+        <p class="text-gray-400 text-sm">mhmdjmtabwbkr@gmail.com</p>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/mohamed-gomaa-481780375/" target="_blank"
+        class="group card p-6 rounded-2xl hover:shadow-purple transition-shadow duration-300 flex flex-col items-center">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand/20 text-brand mb-4">
+          <i data-lucide="linkedin" class="w-7 h-7"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">LinkedIn</h3>
+        <p class="text-gray-400 text-sm">linkedin.com/in/mohamed-gomaa-481780375</p>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/201204088513" target="_blank"
+        class="group card p-6 rounded-2xl hover:shadow-purple transition-shadow duration-300 flex flex-col items-center">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-brand/20 text-brand mb-4">
+          <i data-lucide="phone" class="w-7 h-7"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">WhatsApp</h3>
+        <p class="text-gray-400 text-sm">+20 1204088513</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+    <!-- ====================== Footer ====================== -->
+    <footer class="py-10 text-center text-gray-500">
+      <p>© 2026 Mohamed Gomaa. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+      // Initialize lucide icons
+      lucide.createIcons();
+    </script>
+</body>
+
+</html>

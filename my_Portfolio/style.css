@@ -1,0 +1,222 @@
+/* ==========================
+   Base Fonts & Root Variables
+========================== */
+:root {
+  --brand: #8B5CF6;
+  --brand-dark: #6D28D9;
+  --bg-card: #0a0a0a;
+}
+
+html {
+  scroll-behavior: smooth; /* سكرول ناعم */
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+.font-outfit {
+  font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ==========================
+   Brand Utilities
+========================== */
+.text-brand { color: var(--brand); }
+.bg-brand { background-color: var(--brand); }
+.bg-brand\/10 { background-color: rgba(139, 92, 246, 0.10); }
+.bg-brand\/15 { background-color: rgba(139, 92, 246, 0.15); }
+.ring-brand { --tw-ring-color: var(--brand); }
+.hover\:bg-brand-dark:hover { background-color: var(--brand-dark); }
+.from-brand { --tw-gradient-from: var(--brand); --tw-gradient-to: rgb(139 92 246 / 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+.to-brand-dark { --tw-gradient-to: var(--brand-dark); }
+
+/* ==========================
+   Cards
+========================== */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* ==========================
+   Buttons & Icons
+========================== */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 200ms ease;
+}
+.icon-button:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+}
+
+/* ==========================
+   Tags
+========================== */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #d1d5db;
+}
+
+/* ==========================
+   Inputs
+========================== */
+.input-field {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255,255,255,0.05);
+  border: none;
+  color: #fff;
+  outline: none;
+  transition: box-shadow 200ms ease;
+}
+.input-field::placeholder { color: #9ca3af; }
+.input-field:focus {
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.7);
+}
+
+/* ==========================
+   Skill Badges
+========================== */
+.skill-badge {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  transition: all 200ms ease;
+}
+.skill-badge:hover {
+  background: rgba(139,92,246,0.10);
+  box-shadow: 0 0 0 2px rgba(139,92,246,0.35);
+  border-color: rgba(139,92,246,0.45);
+}
+
+/* ==========================
+   Ambient Glow
+========================== */
+.ambient-glow {
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 60vh;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(40% 60% at 50% 0%, rgba(139,92,246,0.25) 0%, rgba(0,0,0,0) 60%);
+  filter: blur(40px);
+}
+
+/* ==========================
+   Float Animation
+========================== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ==========================
+   Scroll Reveal
+========================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================
+   Header State
+========================== */
+#site-header.nav-scrolled nav {
+  background-color: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* ==========================
+   Scrollbar
+========================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand) #000000;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #000000; }
+::-webkit-scrollbar-thumb {
+  background-color: var(--brand);
+  border-radius: 9999px;
+}
+
+/* ==========================
+   Mobile Menu
+========================== */
+#mobile-menu a {
+  padding: 0.5rem 0.25rem;
+}
+
+/* ==========================
+   Hover Shadows
+========================== */
+.hover\:shadow-purple:hover {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+}
+
+/* ==========================
+   Navbar Links
+========================== */
+.nav-link {
+  color: #d1d5db;
+  transition: color 300ms ease;
+}
+.nav-link:hover { color: var(--brand); }
+
+/* ==========================
+   Contact Button
+========================== */
+.contact-btn {
+  background-color: #6D28D9;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.5);
+  transition: all 0.3s ease;
+}
+.contact-btn:hover {
+  background-color: #8B5CF6;
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
+  color: white;
+}
+
