@@ -1,128 +1,249 @@
-// =======================
-// Sticky header with opacity change on scroll
-// =======================
-const header = document.getElementById('site-header');
-function onScrollHeader() {
-  if (window.scrollY > 8) {
-    header.classList.add('nav-scrolled');
-  } else {
-    header.classList.remove('nav-scrolled');
-  }
-}
-window.addEventListener('scroll', onScrollHeader);
-onScrollHeader();
+// 1. مصفوفة الترجمة الشاملة
+const translations = {
+    en: {
+        navAbout: "About",
+        navServices: "Services",
+        navSkills: "Skills",
+        navWork: "Work",
+        navContact: "Contact",
+        heroGreeting: "Hi, I’m Mohamed Gomaa",
+        heroName: "Hi, I’m",
+        heroRole: "Data Analyst",
+        heroDesc: "I specialize in transforming raw data into actionable insights. Skilled in Python, SQL, Excel, and Power BI, I help businesses make confident, data-driven decisions.",
+        btnContact: "Get in touch",
+        btnPortfolio: "View portfolio",
+        statusText: "Available for Consulting",
+        eduTitle: "Education & Certifications",
+        eduDesc: "My academic journey and professional certifications.",
+        edu1Title: "Google Data Analytics Certificate",
+        edu1Desc: "Intensive program covering SQL, R, dashboards, and data storytelling.",
+        edu2Title: "NVIDIA Certificate",
+        edu2Desc: "Specialized certification in data processing and technical expertise.",
+        viewLinkedin: "View on LinkedIn",
+        viewBtn: "View",
+        skillsTitle: "Technical Toolkit",
+        skillsSubtitle: "Practical tools I use to clean, model, visualize, and deploy insights.",
+        servicesTitle: "Professional Services",
+        servicesSubtitle: "Specialized data solutions to help you unlock the full potential of your business information.",
+        serv1Title: "Data Analysis",
+        serv1Desc: "Transforming raw data into meaningful insights using Python and SQL to drive business growth.",
+        serv2Title: "Dashboards",
+        serv2Desc: "Building dynamic reports in Power BI and Excel for real-time tracking and decision making.",
+        serv3Title: "ML Models",
+        serv3Desc: "Using Machine Learning algorithms to forecast future trends and complex business outcomes.",
+        serv4Title: "Data Cleaning",
+        serv4Desc: "Ensuring data accuracy and consistency by cleaning and structuring messy datasets.",
+        projectsTitle: "Selected Projects",
+        projectsSubtitle: "Explore my data analysis journey through these featured works",
+        btnSlides: "Slides",
+        btnCode: "Code",
+        btnDemo: "Demo",
+        contactTitle: "Get In Touch",
+        contactSubtitle: "Feel free to reach out through email, LinkedIn, or WhatsApp. I’m always open to new opportunities.",
+        methodEmail: "Email",
+        methodLinkedin: "LinkedIn",
+        methodWhatsapp: "WhatsApp",
+        hintEmail: "Send a message",
+        hintLinkedin: "Let's connect",
+        hintWhatsapp: "Chat now",
+        footerText: "© 2026 Mohamed Gomaa. All rights reserved."
+    },
+    ar: {
+        navAbout: "من أنا",
+        navServices: "الخدمات",
+        navSkills: "المهارات",
+        navWork: "أعمالي",
+        navContact: "اتصل بي",
+        heroGreeting: "مرحباً، أنا محمد جمعة",
+        heroName: "مرحباً، أنا",
+        heroRole: "محلل بيانات",
+        heroDesc: "أنا متخصص في تحويل البيانات الخام إلى رؤى قابلة للتنفيذ. متمكن من Python و SQL و Excel و Power BI، أساعد الشركات على اتخاذ قرارات واثقة قائمة على البيانات.",
+        btnContact: "تواصل معي",
+        btnPortfolio: "عرض أعمالي",
+        statusText: "متاح للاستشارات",
+        eduTitle: "التعليم والشهادات",
+        eduDesc: "رحلتي الأكاديمية والشهادات المهنية.",
+        edu1Title: "شهادة جوجل لتحليل البيانات",
+        edu1Desc: "برنامج مكثف يغطي SQL و R ولوحات البيانات وسرد القصص بالبيانات.",
+        edu2Title: "شهادة NVIDIA",
+        edu2Desc: "شهادة متخصصة في معالجة البيانات والخبرة التقنية المتقدمة.",
+        viewLinkedin: "عرض LinkedIn",
+        viewBtn: "عرض",
+        skillsTitle: "الأدوات التقنية",
+        skillsSubtitle: "الأدوات العملية التي أستخدمها لتنظيف ونمذجة وتصور البيانات.",
+        servicesTitle: "الخدمات المهنية",
+        servicesSubtitle: "حلول بيانات متخصصة لمساعدتك في استخراج القيمة الكاملة لمعلومات عملك.",
+        serv1Title: "تحليل البيانات",
+        serv1Desc: "تحويل البيانات الخام إلى رؤى ذات مغزى باستخدام Python و SQL لدفع نمو الأعمال.",
+        serv2Title: "لوحات البيانات",
+        serv2Desc: "بناء تقارير تفاعلية في Power BI و Excel للتتبع اللحظي واتخاذ القرارات.",
+        serv3Title: "نماذج تعلم الآلة",
+        serv3Desc: "استخدام خوارزميات تعلم الآلة للتنبؤ بالتوجهات المستقبلية ونتائج الأعمال المعقدة.",
+        serv4Title: "تنظيف البيانات",
+        serv4Desc: "ضمان دقة واتساق البيانات من خلال تنظيف وهيكلة مجموعات البيانات المعقدة.",
+        projectsTitle: "مشاريع مختارة",
+        projectsSubtitle: "استكشف رحلتي في تحليل البيانات من خلال هذه الأعمال المميزة",
+        btnSlides: "العرض",
+        btnCode: "الكود",
+        btnDemo: "تجربة",
+        contactTitle: "تواصل معي",
+        contactSubtitle: "لا تتردد في التواصل عبر البريد الإلكتروني أو LinkedIn أو WhatsApp. أنا متاح دائماً للفرص الجديدة.",
+        methodEmail: "البريد الإلكتروني",
+        methodLinkedin: "لينكد إن",
+        methodWhatsapp: "واتساب",
+        hintEmail: "أرسل رسالة",
+        hintLinkedin: "لنكن على اتصال",
+        hintWhatsapp: "تحدث الآن",
+        footerText: "© 2026 جميع الحقوق محفوظة لمحمد جمعة."
+    }
+};
 
-// =======================
-// Mobile hamburger menu
-// =======================
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
+// 2. منطق تبديل اللغة المطور
+const langToggle = document.getElementById('lang-toggle');
+const langText = document.getElementById('lang-text');
+let currentLang = 'en';
 
-hamburger?.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-});
+function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    langText.textContent = lang === 'ar' ? 'EN' : 'AR';
 
-// Close mobile menu on link click
-mobileMenu?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-});
-
-// =======================
-// Intersection Observer for scroll reveal
-// =======================
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+    // أ. تحديث العناصر التي تحمل data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            // إذا كان العنصر يحتوي على سبان (مثل الأزرار)، نحدث النص فقط داخل السبان
+            const span = el.querySelector('span');
+            if (span) {
+                span.textContent = translations[lang][key];
+            } else {
+                el.textContent = translations[lang][key];
+            }
+        }
     });
-  },
-  { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-);
+
+    // ب. تحديث الهيرو (H1 والـ Greeting) لضمان عدم ضياع التنسيق والأيقونات
+    const greetingEl = document.querySelector('.greeting');
+    if (greetingEl) {
+        const icon = greetingEl.querySelector('i');
+        greetingEl.innerHTML = '';
+        if (icon) greetingEl.appendChild(icon);
+        greetingEl.appendChild(document.createTextNode(' ' + translations[lang].heroGreeting));
+    }
+
+    const heroH1 = document.querySelector('.hero-text h1');
+    if (heroH1) {
+        if (lang === 'ar') {
+            heroH1.innerHTML = `${translations.ar.heroName} <span class="text-gradient">محمد جمعة</span><br>${translations.ar.heroRole}`;
+        } else {
+            heroH1.innerHTML = `Hi, I’m <span class="text-gradient">Mohamed Gomaa</span><br>Data Analyst`;
+        }
+    }
+
+    // ج. تحديث الفقرات التي قد لا تملك data-i18n
+    const updateText = (selector, key) => {
+        const el = document.querySelector(selector);
+        if (el) el.textContent = translations[lang][key];
+    };
+
+    updateText('.hero-description', 'heroDesc');
+    updateText('.status-badge span', 'statusText');
+    updateText('.skills-subtitle', 'skillsSubtitle');
+    updateText('#services .section-header p', 'servicesSubtitle');
+    updateText('#projects .section-header p', 'projectsSubtitle');
+    updateText('#contact .section-header p', 'contactSubtitle');
+    updateText('footer p', 'footerText');
+
+    // د. تحديث أزرار المشاريع (Slides, Code, Demo)
+    document.querySelectorAll('.btn-proj').forEach(btn => {
+        const btnSpan = btn.querySelector('span');
+        if (btnSpan) {
+            if (btn.innerHTML.includes('presentation')) btnSpan.textContent = translations[lang].btnSlides;
+            if (btn.innerHTML.includes('github')) btnSpan.textContent = translations[lang].btnCode;
+            if (btn.innerHTML.includes('external-link')) btnSpan.textContent = translations[lang].btnDemo;
+        }
+    });
+}
+
+langToggle.addEventListener('click', () => {
+    setLanguage(currentLang === 'en' ? 'ar' : 'en');
+});
+
+// 3. الأيقونات والثيم (Lucide & Theme)
+lucide.createIcons();
+
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = document.querySelector('.sun-icon');
+const moonIcon = document.querySelector('.moon-icon');
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+    if(sunIcon) sunIcon.style.display = 'block';
+    if(moonIcon) moonIcon.style.display = 'none';
+}
+
+themeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    sunIcon.style.display = isDark ? 'block' : 'none';
+    moonIcon.style.display = isDark ? 'none' : 'block';
+});
+
+// 4. أنيميشن الظهور (Reveal)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+}, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// =======================
-// Form validation and success modal
-// =======================
-const form = document.getElementById('contact-form');
-const successModal = document.getElementById('success-modal');
-const closeModalBtn = document.getElementById('close-modal');
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-form?.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const data = new FormData(form);
-  const firstName = (data.get('firstName') || '').toString().trim();
-  const lastName = (data.get('lastName') || '').toString().trim();
-  const email = (data.get('email') || '').toString().trim();
-  const message = (data.get('message') || '').toString().trim();
-
-  const errors = [];
-  if (!firstName) errors.push('First name is required.');
-  if (!lastName) errors.push('Last name is required.');
-  if (!email || !validateEmail(email)) errors.push('A valid email is required.');
-  if (!message || message.length < 10) errors.push('Message should be at least 10 characters.');
-
-  if (errors.length) {
-    alert(errors.join('\n'));
-    return;
-  }
-
-  successModal.classList.remove('hidden');
-  successModal.classList.add('flex');
-
-  form.reset();
+// 5. زر الصعود والمودال
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
 });
 
-function closeModal() {
-  successModal.classList.add('hidden');
-  successModal.classList.remove('flex');
-}
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-closeModalBtn?.addEventListener('click', closeModal);
-successModal?.addEventListener('click', e => {
-  if (e.target === successModal) closeModal();
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+
+document.querySelectorAll('.trigger-modal').forEach(item => {
+    item.addEventListener('click', function() {
+        modal.style.display = "flex";
+        modalImg.src = this.getAttribute('data-src') || this.src;
+    });
 });
 
-// =======================
-// Certificates Modal
-// =======================
+document.querySelector(".modal-close").onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('imgModal');
-  const modalImg = document.getElementById('modalImg');
-  const closeBtn = document.getElementById('closeBtn');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
 
-  function openModal(src) {
-    modalImg.src = src;
-    modal.classList.remove('hidden');
-    modal.style.display = "flex";
-  }
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // عشان الكليك ميتنقلش للـ body
+            navLinks.classList.toggle('active');
+            console.log("Menu clicked, active class status:", navLinks.classList.contains('active'));
+        });
 
-  // ربط الصور وأزرار "View" بالمودال
-  document.querySelectorAll('.certificate-img, .view-btn').forEach(el => {
-    el.addEventListener('click', () => openModal(el.dataset.src));
-  });
+        // قفل المنيو لو ضغطت في أي مكان بره
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
 
-  // إغلاق المودال
-  closeBtn.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    modal.style.display = "none";
-    modalImg.src = '';
-  });
-
-  // إغلاق عند الضغط على الخلفية
-  modal.addEventListener('click', e => {
-    if (e.target === modal) {
-      modal.classList.add('hidden');
-      modal.style.display = "none";
-      modalImg.src = '';
+        // قفل المنيو لما تختار لينك (عشان تروح للسكشن)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    } else {
+        console.error("لم يتم العثور على زر المنيو أو القائمة في الـ HTML");
     }
-  });
 });
