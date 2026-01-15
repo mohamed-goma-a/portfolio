@@ -1,10 +1,12 @@
 // 1. مصفوفة الترجمة الشاملة
 const translations = {
     en: {
+        logo : "Mohamed Gomaa",
         navAbout: "About",
         navServices: "Services",
         navSkills: "Skills",
         navWork: "Work",
+        navEducation : "Education" ,
         navContact: "Contact",
         heroGreeting: "Hi, I’m Mohamed Gomaa",
         heroName: "Hi, I’m",
@@ -22,6 +24,20 @@ const translations = {
         viewLinkedin: "View on LinkedIn",
         viewBtn: "View",
         skillsTitle: "Technical Toolkit",
+        proj1Title: "Walmart Sales Analysis — Power BI",
+        proj1Desc: "Analyzed sales data by exploring, cleaning, and modeling it in Power BI. Built DAX measures (MoM, YoY) and interactive dashboards.",
+        proj2Title: "HR Attrition Analysis — Power BI",
+        proj2Desc: "Created a dashboard showing how income, satisfaction, and job level impact attrition rates using Power Query and Data Modeling.",
+        proj3Title: "Super Store Analysis — Power BI",
+        proj3Desc: "Analyzed sales trends, top segments, and geographic growth to extract insights for retail business optimization.",
+        tagPowerBI: "Power BI",
+        tagHR: "HR Analytics",
+        tagRetail: "Retail",
+        levelExpert: "Expert",
+        levelProfessional: "Professional",
+        levelIntermediate: "Intermediate",
+        levelBeginner: "Beginner",
+
         skillsSubtitle: "Practical tools I use to clean, model, visualize, and deploy insights.",
         servicesTitle: "Professional Services",
         servicesSubtitle: "Specialized data solutions to help you unlock the full potential of your business information.",
@@ -49,9 +65,11 @@ const translations = {
         footerText: "© 2026 Mohamed Gomaa. All rights reserved."
     },
     ar: {
+        logo : "محمد جمعه",
         navAbout: "من أنا",
         navServices: "الخدمات",
         navSkills: "المهارات",
+        navEducation : "تعليمي" ,
         navWork: "أعمالي",
         navContact: "اتصل بي",
         heroGreeting: "مرحباً، أنا محمد جمعة",
@@ -69,6 +87,20 @@ const translations = {
         edu2Desc: "شهادة متخصصة في معالجة البيانات والخبرة التقنية المتقدمة.",
         viewLinkedin: "عرض LinkedIn",
         viewBtn: "عرض",
+
+        levelExpert: "خبير",
+        levelProfessional: "محترف",
+        levelIntermediate: "متوسط",
+        levelBeginner: "مبتدئ",
+        proj1Title: "تحليل مبيعات وول مارت — Power BI",
+        proj1Desc: "تحليل بيانات المبيعات من خلال الاستكشاف والتنظيف والنمذجة في Power BI. بناء مقاييس DAX ولوحات تحكم تفاعلية.",
+        proj2Title: "تحليل ترك العمل (HR) — Power BI",
+        proj2Desc: "إنشاء لوحة تحكم توضح كيفية تأثير الدخل والرضا والمستوى الوظيفي على معدلات ترك العمل باستخدام Power Query.",
+        proj3Title: "تحليل المتجر العملاق (Super Store) — Power BI",
+        proj3Desc: "تحليل اتجاهات المبيعات، وأفضل الفئات، والنمو الجغرافي لاستخراج رؤى لتحسين أعمال التجزئة.",
+        tagPowerBI: "باور بي آي",
+        tagHR: "تحليلات الموارد البشرية",
+        tagRetail: "التجزئة",
         skillsTitle: "الأدوات التقنية",
         skillsSubtitle: "الأدوات العملية التي أستخدمها لتنظيف ونمذجة وتصور البيانات.",
         servicesTitle: "الخدمات المهنية",
@@ -179,8 +211,8 @@ const moonIcon = document.querySelector('.moon-icon');
 
 if (localStorage.getItem('theme') === 'dark') {
     document.documentElement.classList.add('dark');
-    if(sunIcon) sunIcon.style.display = 'block';
-    if(moonIcon) moonIcon.style.display = 'none';
+    if (sunIcon) sunIcon.style.display = 'block';
+    if (moonIcon) moonIcon.style.display = 'none';
 }
 
 themeToggle.addEventListener('click', () => {
@@ -211,7 +243,7 @@ const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
 
 document.querySelectorAll('.trigger-modal').forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
         modal.style.display = "flex";
         modalImg.src = this.getAttribute('data-src') || this.src;
     });
@@ -247,3 +279,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("لم يتم العثور على زر المنيو أو القائمة في الـ HTML");
     }
 });
+
