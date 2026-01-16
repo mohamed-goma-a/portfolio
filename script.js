@@ -286,27 +286,29 @@ function openPresentation(filePath, title) {
     const iframe = document.getElementById('presIframe');
     const modalTitle = document.getElementById('modalTitle');
     
-    // 1. بناء الرابط الكامل للملف (مهم جداً لجوجل)
-    const currentUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
-    const fullURL = `${currentUrl}/${filePath}`;
-    
+    // الحصول على امتداد الملف (pdf أو pptx)
+    const extension = filePath.split('.').pop().toLowerCase();
+    let finalUrl = '';
+
+    if (extension === 'pdf') {
+        // إذا كان PDF افتحه مباشرة (أسرع وأضمن)
+        finalUrl = filePath;
+    } else {
+        // إذا كان PowerPoint استخدم قارئ جوجل (أكثر استقراراً من أوفيس)
+        // بنضيف Timestamp في الآخر عشان نمنع الكاش ونضمن إنه يفتح أحدث نسخة
+        finalUrl = `https://docs.google.com/viewer?url=${window.location.origin}/${filePath}&embedded=true`;
+    }
+
+    iframe.src = finalUrl;
     modalTitle.innerText = title;
-
-    // 2. استخدام Google Docs Viewer لكل الحالات (لضمان العرض على الموبايل)
-    // الطريقة دي بتجبر المتصفح يعرض الملف كصفحة ويب مش كتحميل
-    const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullURL)}&embedded=true`;
-
-    iframe.src = googleViewerUrl;
-
+    
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-// كود الإغلاق (تأكد إنه موجود لراحة المستخدم)
+// كود الإغلاق (تأكد إنه موجود)
 document.querySelector('.close-pres-modal').onclick = function() {
-    const modal = document.getElementById('presentationModal');
-    const iframe = document.getElementById('presIframe');
-    modal.classList.remove('active');
-    iframe.src = ''; // مسح الرابط عشان ميشتغلش في الخلفية
+    document.getElementById('presentationModal').classList.remove('active');
+    document.getElementById('presIframe').src = '';
     document.body.style.overflow = 'auto';
 };

@@ -120,6 +120,7 @@ html[lang="ar"] body {
     NAVBAR - THE SMART FULL CODE
 ----------------------------------------------------------- */
 /* --- Navbar Base --- */
+/* --- Navbar Base --- */
 .navbar {
     position: fixed !important;
     top: 1.2rem;
@@ -129,20 +130,24 @@ html[lang="ar"] body {
     max-width: var(--container-width);
     height: 70px;
     z-index: 9999;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    
+    /* التعديل: استخدام خلفية كثيفة بدل Blur العنيف لتوفير الرام */
+    background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 20px;
+    
     display: flex;
     align-items: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* تفعيل تسريع كارت الشاشة */
+    will-change: transform, background;
 }
 
 html.dark .navbar {
-    background: rgba(15, 23, 42, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
@@ -155,14 +160,13 @@ html.dark .navbar {
 
 .logo {
     font-weight: 800;
-    font-size: clamp(1rem, 3.5vw, 1.4rem);
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
     color: var(--primary);
     text-decoration: none;
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
-/* --- Navigation Links --- */
+/* الروابط (Desktop) */
 .nav-links {
     display: flex;
     gap: 1.5rem;
@@ -176,33 +180,30 @@ html.dark .navbar {
     font-weight: 700;
     color: var(--text-main);
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .nav-links a:hover { color: var(--primary); }
 
-/* --- Nav Actions --- */
+/* الأزرار */
 .nav-actions {
     display: flex;
     gap: 0.6rem;
     align-items: center;
-    flex-shrink: 0;
 }
 
 .icon-btn {
     background: var(--bg-card);
     border: 1px solid var(--border);
     color: var(--text-main);
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-    font-weight: 800;
+    transition: 0.2s;
 }
 
 .icon-btn:hover {
@@ -212,56 +213,46 @@ html.dark .navbar {
 }
 
 .mobile-menu-btn {
-    display: none; /* مخفي في الديسكتوب */
-    background: var(--primary-glow);
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    width: 40px;
-    height: 40px;
-    border-radius: 12px;
-    align-items: center;
-    justify-content: center;
+    display: none;
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-/* --- Mobile Menu Responsive (The Sidebar) --- */
+/* --- Mobile Menu (Sidebar) --- */
 @media (max-width: 992px) {
     .mobile-menu-btn { display: flex; }
 
-    .nav-menu {
+    .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* القائمة مخفية لليمين */
+        right: -100%; /* مخفي يميناً */
         width: 280px;
         height: 100vh;
         background: var(--bg-card);
-        z-index: 10000;
-        padding: 80px 2rem 2rem;
-        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-    }
-
-    .nav-menu.active { right: 0; }
-
-    .nav-links {
         flex-direction: column;
-        gap: 2rem;
+        padding: 80px 2rem;
+        gap: 1.5rem;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 10000;
     }
 
-    .nav-links a { font-size: 1.2rem; }
+    .nav-links.active { right: 0; }
 
     .nav-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.5);
-        backdrop-filter: blur(4px);
-        z-index: 9999;
+        background: rgba(0,0,0,0.4);
+        z-index: 9998;
         display: none;
-        opacity: 0;
-        transition: 0.3s;
     }
 
-    .nav-overlay.active { display: block; opacity: 1; }
+    .nav-overlay.active { display: block; }
 }
 
 /* حالة السكرول */
@@ -269,49 +260,9 @@ html.dark .navbar {
     top: 0;
     width: 100%;
     max-width: 100%;
-    border-radius: 0 0 20px 20px;
-    height: 65px;
-}
-/* -----------------------------------------------------------
-    RESPONSIVE (نفس كودك الأصلي تماماً)
------------------------------------------------------------ */
-
-@media (min-width: 769px) and (max-width: 1100px) {
-    .nav-container { padding: 0 1.2rem; }
-    .nav-links { gap: 0.8rem; }
-    .nav-links a { font-size: 0.85rem; }
-    .icon-btn { width: 36px; height: 36px; font-size: 0.95rem; }
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-btn { display: flex; }
-
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 80px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav-links.active {
-        display: flex;
-        animation: slideDown 0.3s ease-out forwards;
-    }
-}
-
-@keyframes slideDown {
-    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    border-radius: 0 0 15px 15px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.98);
 }
 /* -----------------------------------------------------------
    4. HERO SECTION - ULTRA DYNAMIC & RESPONSIVE
