@@ -207,54 +207,64 @@ document.addEventListener('DOMContentLoaded', () => {
  * 
  * 7. وظيفة فتح المودال الموحدة (عرض المشاريع والشهادات)
  * تم الدمج لتقليل استهلاك الذاكرة وتحسين الأداء
+ */// المتغيرات
+const imgModal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImg');
+const closeImgBtn = document.querySelector('.modal-close');
+
+const presModal = document.getElementById('presentationModal');
+const presIframe = document.getElementById('presIframe');
+const presTitle = document.getElementById('modalTitle');
+const closePresBtn = document.querySelector('.close-pres-modal');
+
+/**
+ * وظيفة فتح الشهادات
  */
-function openContent(path, title, isImage = false) {
-    const modal = document.getElementById('presentationModal');
-    const iframe = document.getElementById('presIframe');
-    const modalTitle = document.getElementById('modalTitle');
-
-    if (!modal || !iframe) return;
-
-    if (modalTitle) modalTitle.innerText = title;
-
-    if (isImage) {
-        // إذا كان المطلب عرض صورة (شهادة)
-        iframe.src = path;
-    } else {
-        // إذا كان المطلب عرض ملف PDF (بريزنتيشن) باستخدام محرك جوجل
-        const currentUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
-        const fullURL = `${currentUrl}/${path}`;
-        iframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(fullURL)}&embedded=true`;
-    }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-// تشغيل الوظيفة عند الضغط على أي عنصر يحمل كلاس trigger-modal (للشهادات)
 document.querySelectorAll('.trigger-modal').forEach(element => {
-    element.onclick = function(e) {
+    element.addEventListener('click', function(e) {
         e.preventDefault();
-        const src = this.getAttribute('data-src');
-        const title = this.closest('.certificate-card')?.querySelector('.cert-title')?.textContent || "Certificate";
-        openContent(src, title, true); // true تعني أنها صورة
-    };
+        const fullSrc = this.getAttribute('data-src');
+        if (imgModal && modalImg) {
+            modalImg.src = fullSrc;
+            imgModal.style.display = "flex";
+            // السكرول سيبقى يعمل لأننا لم نغير overflow الجسم
+        }
+    });
 });
 
-// تشغيل الوظيفة للمشاريع (عن طريق الـ HTML onclick السابق)
-// لتجنب أي تعارض، سنعيد تعريف الوظيفة القديمة لتستخدم الوظيفة الجديدة
+/**
+ * وظيفة فتح المشاريع
+ */
 function openPresentation(filePath, title) {
-    openContent(filePath, title, false); // false تعني أنه ملف بريزنتيشن
+    if (!presModal || !presIframe) return;
+    if (presTitle) presTitle.innerText = title;
+    
+    presIframe.src = ''; // تصفير لتجنب تعليق المحتوى القديم
+    const currentUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+    presIframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(currentUrl + '/' + filePath)}&embedded=true`;
+
+    presModal.classList.add('active');
 }
 
-// زر الإغلاق الموحد
-const closePresBtn = document.querySelector('.close-pres-modal');
-if (closePresBtn) {
-    closePresBtn.onclick = function() {
-        const modal = document.getElementById('presentationModal');
-        const iframe = document.getElementById('presIframe');
-        if (modal) modal.classList.remove('active');
-        if (iframe) iframe.src = '';
-        document.body.style.overflow = 'auto';
+/**
+ * الإغلاق وتنظيف الذاكرة
+ */
+if (closeImgBtn) {
+    closeImgBtn.onclick = function() {
+        imgModal.style.display = "none";
+        modalImg.src = ""; 
     };
 }
+
+if (closePresBtn) {
+    closePresBtn.onclick = function() {
+        presModal.classList.remove('active');
+        presIframe.src = '';
+    };
+}
+
+// إغلاق المودالات عند الضغط في أي مكان خارج المحتوى
+window.addEventListener('click', (e) => {
+    if (e.target === imgModal) closeImgBtn.click();
+    if (e.target === presModal) closePresBtn.click();
+});
