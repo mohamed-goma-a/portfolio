@@ -197,37 +197,64 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
-
-// --- وظائف عامة (خارج DOMContentLoaded) ---
-
-// فتح البريزنتيشن
-function openPresentation(filePath, title) {
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 7. وظيفة فتح المودال الموحدة (عرض المشاريع والشهادات)
+ * تم الدمج لتقليل استهلاك الذاكرة وتحسين الأداء
+ */
+function openContent(path, title, isImage = false) {
     const modal = document.getElementById('presentationModal');
     const iframe = document.getElementById('presIframe');
     const modalTitle = document.getElementById('modalTitle');
-    
-    if(!modal || !iframe) return;
 
-    const currentUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
-    const fullURL = `${currentUrl}/${filePath}`;
-    
-    if(modalTitle) modalTitle.innerText = title;
-    
-    // استخدام محرك جوجل لضمان العرض السلس على الموبايل
-    iframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(fullURL)}&embedded=true`;
-    
+    if (!modal || !iframe) return;
+
+    if (modalTitle) modalTitle.innerText = title;
+
+    if (isImage) {
+        // إذا كان المطلب عرض صورة (شهادة)
+        iframe.src = path;
+    } else {
+        // إذا كان المطلب عرض ملف PDF (بريزنتيشن) باستخدام محرك جوجل
+        const currentUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+        const fullURL = `${currentUrl}/${path}`;
+        iframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(fullURL)}&embedded=true`;
+    }
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-// زر إغلاق مودال البريزنتيشن
+// تشغيل الوظيفة عند الضغط على أي عنصر يحمل كلاس trigger-modal (للشهادات)
+document.querySelectorAll('.trigger-modal').forEach(element => {
+    element.onclick = function(e) {
+        e.preventDefault();
+        const src = this.getAttribute('data-src');
+        const title = this.closest('.certificate-card')?.querySelector('.cert-title')?.textContent || "Certificate";
+        openContent(src, title, true); // true تعني أنها صورة
+    };
+});
+
+// تشغيل الوظيفة للمشاريع (عن طريق الـ HTML onclick السابق)
+// لتجنب أي تعارض، سنعيد تعريف الوظيفة القديمة لتستخدم الوظيفة الجديدة
+function openPresentation(filePath, title) {
+    openContent(filePath, title, false); // false تعني أنه ملف بريزنتيشن
+}
+
+// زر الإغلاق الموحد
 const closePresBtn = document.querySelector('.close-pres-modal');
-if(closePresBtn) {
+if (closePresBtn) {
     closePresBtn.onclick = function() {
         const modal = document.getElementById('presentationModal');
         const iframe = document.getElementById('presIframe');
-        if(modal) modal.classList.remove('active');
-        if(iframe) iframe.src = '';
+        if (modal) modal.classList.remove('active');
+        if (iframe) iframe.src = '';
         document.body.style.overflow = 'auto';
     };
 }
