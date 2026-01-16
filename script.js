@@ -1,6 +1,7 @@
 // 1. مصفوفة الترجمة الشاملة
 const translations = {
     en: {
+        
         logo : "Mohamed Gomaa",
         navAbout: "About",
         navServices: "Services",
@@ -280,3 +281,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function openPresentation(filePath, title) {
+    const modal = document.getElementById('presentationModal');
+    const iframe = document.getElementById('presIframe');
+    const modalTitle = document.getElementById('modalTitle');
+    
+    // الحصول على امتداد الملف (pdf أو pptx)
+    const extension = filePath.split('.').pop().toLowerCase();
+    let finalUrl = '';
+
+    if (extension === 'pdf') {
+        // إذا كان PDF افتحه مباشرة (أسرع وأضمن)
+        finalUrl = filePath;
+    } else {
+        // إذا كان PowerPoint استخدم قارئ جوجل (أكثر استقراراً من أوفيس)
+        // بنضيف Timestamp في الآخر عشان نمنع الكاش ونضمن إنه يفتح أحدث نسخة
+        finalUrl = `https://docs.google.com/viewer?url=${window.location.origin}/${filePath}&embedded=true`;
+    }
+
+    iframe.src = finalUrl;
+    modalTitle.innerText = title;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// كود الإغلاق (تأكد إنه موجود)
+document.querySelector('.close-pres-modal').onclick = function() {
+    document.getElementById('presentationModal').classList.remove('active');
+    document.getElementById('presIframe').src = '';
+    document.body.style.overflow = 'auto';
+};

@@ -119,15 +119,7 @@ html[lang="ar"] body {
 /* -----------------------------------------------------------
     NAVBAR - THE SMART FULL CODE
 ----------------------------------------------------------- */
-
-/* الهيكل الأساسي للنافبار */
-/* -----------------------------------------------------------
-    NAVBAR - THE ULTIMATE FIXED VERSION
------------------------------------------------------------ */
-/* ===========================================================
-    NAVBAR - ORIGINAL VERSION + NO DOTS + PRO HOVER
-   =========================================================== */
-
+/* --- Navbar Base --- */
 .navbar {
     position: fixed !important;
     top: 1.2rem;
@@ -145,28 +137,12 @@ html[lang="ar"] body {
     display: flex;
     align-items: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html.dark .navbar {
     background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-}
-
-.navbar.scrolled {
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 65px;
-    border-radius: 0 0 20px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-color: var(--border);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
-}
-
-html.dark .navbar.scrolled {
-    background: rgba(10, 10, 10, 0.95);
 }
 
 .nav-container {
@@ -174,117 +150,128 @@ html.dark .navbar.scrolled {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0 2rem;
-    transition: padding 0.3s ease;
+    padding: 0 1.5rem;
 }
 
 .logo {
     font-weight: 800;
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-size: clamp(1rem, 3.5vw, 1.4rem);
     color: var(--primary);
-    letter-spacing: -0.03em;
     text-decoration: none;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
-/* روابط التنقل - شيلنا النقط هنا */
+/* --- Navigation Links --- */
 .nav-links {
     display: flex;
     gap: 1.5rem;
-    list-style: none !important; /* لضمان حذف النقطة */
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .nav-links a {
-    font-size: .95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--text-main);
-    transition: .3s;
     text-decoration: none;
-    position: relative;
+    transition: 0.3s;
 }
 
-/* الهوفر إفيكت (الخط اللي بيظهر تحت اللينك) */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: 0.3s ease;
-}
+.nav-links a:hover { color: var(--primary); }
 
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
+/* --- Nav Actions --- */
 .nav-actions {
     display: flex;
-    gap: 0.8rem;
+    gap: 0.6rem;
     align-items: center;
+    flex-shrink: 0;
 }
 
-/* تطوير أزرار الأيقونات (رفع + لمعة) */
 .icon-btn {
     background: var(--bg-card);
     border: 1px solid var(--border);
     color: var(--text-main);
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-size: 1.1rem;
-    position: relative;
-    overflow: hidden;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    font-weight: 800;
 }
 
 .icon-btn:hover {
     background: var(--primary);
     color: white;
-    transform: translateY(-3px); /* رفع الزرار */
-    box-shadow: 0 8px 15px -5px var(--primary); /* شادو */
-}
-
-/* اللمعة للأيقونات */
-.icon-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
-}
-
-.icon-btn:hover::after {
-    left: 100%;
+    transform: translateY(-2px);
 }
 
 .mobile-menu-btn {
-    display: none;
+    display: none; /* مخفي في الديسكتوب */
     background: var(--primary-glow);
-    border: 1px solid var(--primary);
     color: var(--primary);
-    width: 42px;
-    height: 42px;
+    border: 1px solid var(--primary);
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
+/* --- Mobile Menu Responsive (The Sidebar) --- */
+@media (max-width: 992px) {
+    .mobile-menu-btn { display: flex; }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* القائمة مخفية لليمين */
+        width: 280px;
+        height: 100vh;
+        background: var(--bg-card);
+        z-index: 10000;
+        padding: 80px 2rem 2rem;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active { right: 0; }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .nav-links a { font-size: 1.2rem; }
+
+    .nav-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        display: none;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    .nav-overlay.active { display: block; opacity: 1; }
+}
+
+/* حالة السكرول */
+.navbar.scrolled {
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 0 20px 20px;
+    height: 65px;
+}
 /* -----------------------------------------------------------
     RESPONSIVE (نفس كودك الأصلي تماماً)
 ----------------------------------------------------------- */
@@ -327,14 +314,11 @@ html.dark .navbar.scrolled {
     to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 /* -----------------------------------------------------------
-   4. HERO SECTION
------------------------------------------------------------ */
-/* -----------------------------------------------------------
-   4. HERO SECTION - ULTRA DYNAMIC VERSION (10/10)
+   4. HERO SECTION - ULTRA DYNAMIC & RESPONSIVE
 ----------------------------------------------------------- */
 .hero {
     position: relative;
-    padding: calc(var(--nav-height) + 3rem) 0 5rem;
+    padding: calc(var(--nav-height) + 4rem) 0 5rem;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -358,9 +342,9 @@ html.dark .navbar.scrolled {
     width: clamp(300px, 45vw, 550px);
     height: clamp(300px, 45vw, 550px);
     background: var(--brand);
-    filter: blur(90px);
+    filter: blur(70px);
     border-radius: 50%;
-    opacity: 0.12;
+    opacity: 0.1;
     z-index: -1;
     animation: hero-float-blobs 12s infinite ease-in-out;
 }
@@ -369,13 +353,13 @@ html.dark .navbar.scrolled {
 .blob-2 { bottom: -10%; left: -5%; animation-delay: -6s; }
 
 @keyframes hero-float-blobs {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(30px, -20px) scale(1.1); }
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.08; }
+    50% { transform: translate(30px, -20px) scale(1.1); opacity: 0.15; }
 }
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.2fr 0.8fr; /* زيادة مساحة النص */
     gap: 4rem;
     align-items: center;
     width: 100%;
@@ -402,30 +386,40 @@ html.dark .navbar.scrolled {
     border: 1px solid rgba(139, 92, 246, 0.15);
 }
 
+/* --- تعديل العنوان والاسم --- */
 .hero-text h1 {
     font-size: clamp(2.2rem, 6vw, 3.8rem);
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     font-weight: 900;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     color: var(--text-main);
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, var(--brand), #a78bfa);
+    display: inline-block;
+    background: linear-gradient(135deg, var(--brand) 0%, #a78bfa 50%, var(--brand) 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    white-space: nowrap; /* منع كسر الاسم نهائياً */
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
 }
 
 .hero-text p {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1rem, 2vw, 1.15rem);
     color: var(--text-muted);
     margin-bottom: 2.5rem;
-    max-width: 540px;
+    max-width: 55ch;
     line-height: 1.7;
+    letter-spacing: 0.01em;
 }
 
-/* --- الأزرار الديناميكية (Dynamic Sizing) --- */
+/* --- الأزرار --- */
 .btn-group {
     display: flex;
     gap: 1rem;
@@ -434,9 +428,7 @@ html.dark .navbar.scrolled {
 
 .btn {
     position: relative;
-    /* الخط يتغير بين 0.85rem و 1rem */
     font-size: clamp(0.85rem, 1.2vw, 1rem); 
-    /* الارتفاع الرأسي يتغير بين 0.7rem و 1rem حسب الشاشة */
     padding: clamp(0.7rem, 1.5vh, 1rem) clamp(1.5rem, 3vw, 2.5rem);
     border-radius: 0.85rem;
     font-weight: 700;
@@ -448,8 +440,6 @@ html.dark .navbar.scrolled {
     overflow: hidden;
     z-index: 1;
     text-decoration: none !important;
-    border: none;
-    min-width: fit-content;
 }
 
 .btn-primary { 
@@ -469,12 +459,17 @@ html.dark .navbar.scrolled {
     box-shadow: var(--shadow-lg); 
 }
 
-.btn-outline:hover { 
-    border-color: var(--brand) !important; 
-    color: var(--brand); 
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--brand), #a78bfa);
 }
 
-/* اللمعة النووية (محبوسة داخل العناصر) */
+.btn-outline:hover { 
+    background: var(--brand);
+    color: #fff !important;
+    border-color: var(--brand) !important; 
+}
+
+/* اللمعة على الأزرار والكارد */
 .btn::after, .profile-card::after {
     content: '';
     position: absolute;
@@ -482,27 +477,19 @@ html.dark .navbar.scrolled {
     left: -150%;
     width: 150%;
     height: 100%;
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.25), 
-        rgba(139, 92, 246, 0.1), 
-        transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: skewX(-25deg);
     transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     z-index: 5;
 }
 
-.btn:hover::after, .profile-card:hover::after {
-    left: 150%;
-}
+.btn:hover::after, .profile-card:hover::after { left: 150%; }
 
 /* --- قسم الصورة (البروفايل) --- */
 .hero-visual {
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
     margin-inline-start: auto;
     position: relative;
     animation: hero-profile-float 8s infinite ease-in-out;
@@ -515,40 +502,46 @@ html.dark .navbar.scrolled {
 
 .profile-card {
     position: relative;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 2.5rem;
-    padding: 1rem;
-    box-shadow: var(--shadow-md);
+    padding: 0.8rem;
+    box-shadow: var(--shadow-xl);
     overflow: hidden;
-    display: flex;
     transition: 0.5s ease;
 }
-
-.profile-card:hover { border-color: var(--brand); }
 
 .profile-img {
     width: 100%;
     height: auto;
     border-radius: 1.8rem;
     object-fit: cover;
+    display: block;
+    filter: grayscale(15%);
+    transition: 0.5s ease;
 }
 
-/* --- بطاقة الحالة (Status Badge) --- */
+.profile-card:hover .profile-img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* بطاقة الحالة */
 .status-badge {
     position: absolute;
     bottom: 2rem;
     right: -0.5rem;
     background: var(--bg-card);
-    padding: 0.4rem 0.9rem;
+    padding: 0.5rem 1rem;
     border-radius: 3rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     font-weight: 800;
     font-size: 0.75rem;
     border: 1px solid var(--border);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     white-space: nowrap;
     z-index: 10;
 }
@@ -559,37 +552,56 @@ html.dark .navbar.scrolled {
     background: #10b981;
     border-radius: 50%;
     box-shadow: 0 0 8px #10b981;
+    animation: pulse 2s infinite;
 }
 
-/* --- Responsive Layout --- */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
-    .hero-content { grid-template-columns: 1fr; text-align: center; gap: 3.5rem; }
+    .hero-content { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        gap: 4rem; 
+    }
     .hero-text { align-items: center; }
-    .hero-visual { order: -1; margin-inline: auto; }
-    .btn-group { justify-content: center; width: 100%; }
+    .hero-text p { margin-inline: auto; }
+    .hero-visual { 
+        order: -1; 
+        margin-inline: auto; 
+        max-width: 350px; 
+    }
+    .btn-group { justify-content: center; }
 }
 
 @media (max-width: 576px) {
-    .hero-text h1 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+    .hero { padding-top: calc(var(--nav-height) + 2rem); }
+    
+    .hero-text h1 { 
+        font-size: clamp(1.8rem, 9vw, 2.6rem); 
+    }
+
+    .hero-visual {
+        max-width: 280px; /* حجم أنسب للموبايل */
+    }
     
     .btn-group {
         flex-direction: column;
         width: 100%;
-        gap: 0.7rem;
     }
-    .btn {
-        width: 100%;
-        /* في الموبايل، نصغر الارتفاع الداخلي سيكا عشان ميبقاش الزرار ضخم أوي */
-        padding: 0.8rem 1.5rem; 
-    }
+
+    .btn { width: 100%; padding: 0.8rem 1.5rem; }
 
     .status-badge {
         right: 50%;
         transform: translateX(50%);
-        bottom: -10px;
-        font-size: 0.7rem;
+        bottom: -15px;
     }
 }
+
 /* -----------------------------------------------------------
    5. SECTIONS
 ----------------------------------------------------------- */
@@ -881,18 +893,11 @@ section {
 body.modal-open {
     overflow: hidden;
 }
-/* -----------------------------------------------------------
-   7. SKILLS GRID
------------------------------------------------------------ */
+
 /* -----------------------------------------------------------
     7. SKILLS SECTION
 ----------------------------------------------------------- */
-/* -----------------------------------------------------------
-   5. SKILLS SECTION - ULTRA MODERN REFINEMENT
------------------------------------------------------------ */
-/* -----------------------------------------------------------
-   5. SKILLS SECTION - ULTRA-WIDE GAPS & TABLET OPTIMIZED
------------------------------------------------------------ */
+
 .skills-section {
     padding: clamp(60px, 8vh, 100px) 0;
     position: relative;
@@ -900,149 +905,148 @@ body.modal-open {
 
 .modern-skills-grid {
     display: grid;
-    /* الجريد الأساسي للديسك توب */
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 30px; /* مساحة أوسع بين الكروت نفسها */
-    perspective: 1000px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .skill-module-v3 {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 26px; /* زيادة بادينج الكارد عشان يستوعب المسافات الجديدة */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1.75rem;
+    border-radius: 1.25rem;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    /* gap هنا بتضمن إن التاجات متبعدش عن الهيدر بمسافة ضخمة */
+    gap: 1.25rem; 
     height: 100%;
 }
 
-/* تأثير اللمعة */
-.skill-module-v3::after {
+/* تأثير التوهج الخلفي */
+.skill-module-v3::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), rgba(255, 255, 255, 0.1), transparent);
-    transform: skewX(-25deg);
-    transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-    z-index: 5;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.08), transparent 70%);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
 }
-
-.skill-module-v3:hover::after { left: 150%; }
 
 .skill-module-v3:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px) scale(1.01);
     border-color: var(--brand);
-    box-shadow: 0 20px 40px -15px rgba(139, 92, 246, 0.25) !important;
+    box-shadow: 0 20px 40px rgba(109, 40, 217, 0.25) !important;
 }
 
+.skill-module-v3:hover::before { 
+    opacity: 1; 
+}
+
+/* الهيدر: الأيقونة + العنوان + الحالة */
 .module-main {
     display: flex;
-    gap: 16px;
     align-items: center;
-    margin-bottom: 22px;
+    gap: 1rem;
+    z-index: 2;
 }
 
 .module-icon { 
-    min-width: 52px; 
-    height: 52px; 
+    min-width: 48px; 
+    height: 48px; 
     background: var(--primary-glow); 
     color: var(--brand); 
-    border-radius: 14px; 
+    border-radius: 12px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    font-size: 1.4rem; 
+    font-size: 1.3rem; 
     border: 1px solid rgba(139, 92, 246, 0.1);
+    transition: 0.5s;
+    flex-shrink: 0;
+}
+
+.skill-module-v3:hover .module-icon {
+    transform: rotate(15deg) scale(1.1); 
+    background: var(--brand); 
+    color: white; 
+}
+
+.module-content {
+    flex-grow: 1;
+}
+
+.title-flex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .title-flex h3 { 
     font-size: 1.15rem; 
     font-weight: 800; 
     color: var(--text-main); 
+    margin: 0;
 }
 
 /* مستويات الخبرة */
-.skill-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 12px;
-    margin-bottom: 22px;
-    border-bottom: 1px solid var(--border);
-}
-
 .skill-status { 
-    font-size: 0.65rem; 
-    font-weight: 900; 
-    padding: 3px 10px; 
-    border-radius: 30px; 
+    font-size: 0.6rem; 
+    font-weight: 800; 
+    padding: 2px 8px; 
+    border-radius: 6px; 
     text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
-.skill-status[data-level="expert"] { color: #10b981; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.15); }
-.skill-status[data-level="professional"] { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.15); }
-.skill-status[data-level="intermediate"] {  color: #f59e0b ; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.15); }
-.skill-status[data-level="beginner"] {color: #3b82f6; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.15); }
+.skill-status[data-level="expert"] { color: #10b981; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); }
+.skill-status[data-level="professional"] { color: #8b5cf6; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); }
+.skill-status[data-level="intermediate"] { color: #f59e0b; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.2); }
+.skill-status[data-level="beginner"] { color: #3b82f6; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); }
 
-/* --- نظام الكبسولات المطور (Ultra-Wide Space) --- */
-.tags-group {
+/* نظام التاجات (رصاصي ومتصل بالمحتوى) */
+.tags-cloud {
     display: flex;
     flex-wrap: wrap; 
-    /* مسافة واسعة جداً: 20px بالعرض و 16px بالارتفاع */
-    column-gap: 20px;
-    row-gap: 16px;
-    margin-top: auto; 
+    column-gap: 10px;
+    row-gap: 8px;
+    z-index: 2;
+    /* شيلنا الـ margin-top: auto عشان ميهربش لتحت */
 }
 
 .tag {
-    font-size: 0.75rem; 
+    font-size: 0.72rem; 
     font-weight: 700; 
-    padding: 2px 4px; /* كبست البادينج جداً عشان التاج يلم نفسه والمسافة هي اللي تبان */
-    margin: 2px 3px;
-    border-radius: 4px; 
-    background: transparent; /* خلفية شفافة لتركيز العين على المسافة والكلام */
-    border: 1px solid var(--border); 
+    padding: 2px 5px; 
+    border-radius: 8px; 
+    background: rgba(120, 120, 120, 0.1); 
+    border: 1px solid rgba(120, 120, 120, 0.15); 
     color: var(--text-muted); 
     transition: 0.3s ease;
-    text-wrap: nor;
+    white-space: nowrap;
+}
+
+[data-theme="light"] .tag {
+    background: rgba(0, 0, 0, 0.05);
+    color: #555;
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
 .tag:hover { 
     border-color: var(--brand); 
     color: var(--brand); 
     transform: translateY(-3px);
+    background: rgba(139, 92, 246, 0.05);
 }
 
-/* --- Responsive Layout (Tablet & Mobile) --- */
-
-/* وضع التابلت: عرض كارتين جنب بعض */
-@media (max-width: 992px) {
-    .modern-skills-grid {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
-    }
-}
-
-/* وضع الفون: كارت واحد */
-@media (max-width: 600px) {
-    .modern-skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .skill-module-v3 { padding: 20px; }
-    
-    .tags-group { 
-        column-gap: 15px; /* تقليل بسيط للموبايل */
-        row-gap: 12px;
-    }
+/* Responsive */
+@media (max-width: 650px) {
+    .modern-skills-grid { grid-template-columns: 1fr; }
+    .skill-module-v3 { padding: 1.5rem; gap: 1rem; }
 }
 /* -----------------------------------------------------------
     8. SERVICES SECTION
@@ -1161,40 +1165,33 @@ body.modal-open {
 /* -----------------------------------------------------------
    9. PROJECTS SECTION (FULL COMPLETE CODE)
 ----------------------------------------------------------- */
-/* -----------------------------------------------------------
-    7. PROJECTS SECTION - FULL UNIFIED VERSION
------------------------------------------------------------ */
-
+/* --- Projects Grid --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-    perspective: 1000px;
 }
 
 .project-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
-    box-shadow: none;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: default;
-    position: relative; /* ضروري جداً لعمل اللمعة */
+    position: relative;
 }
 
-/* الهوفر القوي وتوهج البراند */
 .project-card:hover {
-    transform: translateY(-15px) scale(1.01);
+    transform: translateY(-15px);
     border-color: var(--brand);
-    box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.4) !important;
+    box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.3) !important;
 }
 
-/* --- تطبيق اللمعة الفتاكة (نفس ستايل المهارات والكونتاكت) --- */
+/* تأثير اللمعة الساحب */
 .project-card::after {
     content: '';
     position: absolute;
@@ -1202,77 +1199,55 @@ body.modal-open {
     left: -150%;
     width: 150%; 
     height: 100%;
-    /* التدرج السحري: شفاف + بنفسجي + ظل خفيف + شفاف */
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(139, 92, 246, 0.25), /* بنفسجي البراند */
-        rgba(0, 0, 0, 0.08),      /* ظل خفيف يظهر في اللايت مود */
-        transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.15), transparent);
     transform: skewX(-20deg);
-    transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.8s;
     pointer-events: none;
-    z-index: 10;
 }
 
-.project-card:hover::after {
-    left: 150%;
-}
+.project-card:hover::after { left: 150%; }
 
-/* --- منع الخطوط تحت الكلام نهائياً في المشاريع --- */
-.project-card a, 
-.project-card a *,
-.project-title,
-.btn-proj {
+/* منع الخطوط تحت الكلام */
+.project-card a, .project-title {
     text-decoration: none !important;
-    text-decoration-line: none !important;
-    border-bottom: none !important;
-    outline: none !important;
 }
 
 .project-img-container {
-    height: 220px;
-    padding: 12px;
+    height: 200px;
+    padding: 10px;
     overflow: hidden;
-    position: relative;
-    z-index: 1;
 }
 
 .project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    opacity: 0.8;
+    border-radius: 12px;
     filter: grayscale(20%);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.5s;
 }
 
-.project-card:hover .project-img {
-    transform: scale(1.04); 
-    opacity: 1;
-    filter: grayscale(0%);
-}
+.project-card:hover .project-img { filter: grayscale(0%); transform: scale(1.03); }
 
 .project-content {
     padding: 1.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    z-index: 2;
 }
 
 .project-title {
     font-size: 1.2rem;
     font-weight: 800;
-    margin-bottom: 0.75rem;
     color: var(--text-main);
-    transition: color 0.3s ease;
+    margin-bottom: 0.8rem;
 }
 
-.project-card:hover .project-title {
-    color: var(--brand);
+.project-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .project-tags {
@@ -1280,88 +1255,101 @@ body.modal-open {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 20px 0 0 0 !important;
+    margin-bottom: 1.5rem;
 }
 
-.project-tag {
-    font-size: 0.75rem;
+.tag {
+    font-size: 0.7rem;
     font-weight: 700;
-    padding: 6px 14px;
+    padding: 4px 10px;
     border-radius: 6px;
-    background-color: #cbd5e1 !important; /* لون هادئ في اللايت مود */
-    color: #1e293b !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    transition: all 0.3s ease;
+    background: rgba(120, 120, 120, 0.1);
+    color: var(--text-muted);
 }
 
-/* تنسيق التاج في الدارك مود */
-html.dark .project-tag,
-body.dark-mode .project-tag {
-    background-color: #1e293b !important;
-    color: #f1f5f9 !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-.project-tag:hover {
-    background-color: var(--brand) !important;
-    color: white !important;
-    transform: translateY(-3px);
-}
-
+/* الأزرار */
 .project-actions-row {
     display: flex;
-    gap: 0.8rem;
-    width: 100%;
-    margin-top: 1.5rem;
+    gap: 0.6rem;
 }
 
 .btn-proj {
     flex: 1;
-    height: 42px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    height: 40px;
+    font-size: 0.7rem;
+    font-weight: 700;
     border-radius: 8px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
+    gap: 5px;
+    transition: 0.3s;
 }
 
-/* زرار المعاينة البنفسجي بلمعته الخاصة */
 .btn-purple-shine {
-    background: #6D28D9;
+    background: var(--brand);
     color: white !important;
-    position: relative;
+}
+
+.btn-outline {
+    border: 1px solid var(--border) !important;
+    color: var(--text-main);
+}
+
+.btn-proj:hover { transform: translateY(-3px); }
+
+/* --- Modal Styles --- */
+.pres-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pres-modal.active { display: flex; }
+
+.pres-modal-content {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 1100px;
+    height: 85vh;
+    border-radius: 20px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pres-modal-header {
+    padding: 15px 25px;
+    background: var(--bg-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.pres-modal-body { flex-grow: 1; background: #000; }
+#presIframe { width: 100%; height: 100%; border: none; }
+
+.close-pres-modal {
+    background: var(--primary-glow);
+    color: var(--brand);
     border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.btn-purple-shine::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    transform: skewX(-20deg);
-    transition: 0.6s;
-}
-
-.btn-purple-shine:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.4);
-}
-
-.btn-purple-shine:hover::after {
-    left: 150%;
+@media (max-width: 768px) {
+    .pres-modal-content { height: 70vh; }
+    .project-actions-row { flex-wrap: wrap; }
 }
 /* -----------------------------------------------------------
     9. CONTACT SECTION (OLD STYLE + NO UNDERLINE FIX)
