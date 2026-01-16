@@ -1156,6 +1156,7 @@ body.modal-open {
    9. PROJECTS SECTION (FULL COMPLETE CODE)
 ----------------------------------------------------------- */
 /* --- Projects Grid --- */
+/* --- Projects Grid --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1181,7 +1182,6 @@ body.modal-open {
     box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.3) !important;
 }
 
-/* تأثير اللمعة الساحب */
 .project-card::after {
     content: '';
     position: absolute;
@@ -1196,11 +1196,6 @@ body.modal-open {
 }
 
 .project-card:hover::after { left: 150%; }
-
-/* منع الخطوط تحت الكلام */
-.project-card a, .project-title {
-    text-decoration: none !important;
-}
 
 .project-img-container {
     height: 200px;
@@ -1219,83 +1214,14 @@ body.modal-open {
 
 .project-card:hover .project-img { filter: grayscale(0%); transform: scale(1.03); }
 
-.project-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 0.8rem;
-}
-
-.project-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.project-tags {
-    margin-top: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 1.5rem;
-}
-
-.tag {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: rgba(120, 120, 120, 0.1);
-    color: var(--text-muted);
-}
-
-/* الأزرار */
-.project-actions-row {
-    display: flex;
-    gap: 0.6rem;
-}
-
-.btn-proj {
-    flex: 1;
-    height: 40px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    transition: 0.3s;
-}
-
-.btn-purple-shine {
-    background: var(--brand);
-    color: white !important;
-}
-
-.btn-outline {
-    border: 1px solid var(--border) !important;
-    color: var(--text-main);
-}
-
-.btn-proj:hover { transform: translateY(-3px); }
-
-/* --- Modal Styles --- */
+/* --- Modal Styles (الموديل المطور لمنع التعليق) --- */
 .pres-modal {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(10px);
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -1312,19 +1238,43 @@ body.modal-open {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border);
+    animation: modalSlideUp 0.4s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .pres-modal-header {
     padding: 15px 25px;
-    background: var(--bg-card);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border);
 }
 
-.pres-modal-body { flex-grow: 1; background: #000; }
-#presIframe { width: 100%; height: 100%; border: none; }
+.pres-modal-body { 
+    flex-grow: 1; 
+    background: #000; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* أهم جزء لعرض الشهادة كاملة والمشروع كامل */
+#presIframe, #presImage {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none; /* مخفيين وبنظهر المطلوب بالـ JS */
+}
+
+#presImage {
+    object-fit: contain; /* ده اللي بيخلي الشهادة تبان كلها */
+}
 
 .close-pres-modal {
     background: var(--primary-glow);
@@ -1334,12 +1284,14 @@ body.modal-open {
     height: 35px;
     border-radius: 50%;
     cursor: pointer;
-    font-weight: bold;
+    font-size: 1.2rem;
+    transition: 0.3s;
 }
 
+.close-pres-modal:hover { transform: rotate(90deg); background: var(--brand); color: #fff; }
+
 @media (max-width: 768px) {
-    .pres-modal-content { height: 70vh; }
-    .project-actions-row { flex-wrap: wrap; }
+    .pres-modal-content { height: 75vh; width: 95%; }
 }
 /* -----------------------------------------------------------
     9. CONTACT SECTION (OLD STYLE + NO UNDERLINE FIX)
