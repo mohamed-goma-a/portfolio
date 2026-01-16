@@ -115,39 +115,53 @@ html[lang="ar"] body {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
-}
-/* -----------------------------------------------------------
-    NAVBAR - THE SMART FULL CODE
------------------------------------------------------------ */
-/* --- Navbar Base --- */
-/* --- Navbar Base --- */
+}/* ==========================================================================
+   1. الناف بار الرئيسي (رصاصي شفاف بنسبة بسيطة جداً)
+   ========================================================================== */
 .navbar {
     position: fixed !important;
     top: 1.2rem;
     left: 50%;
     transform: translateX(-50%);
     width: 95%;
-    max-width: var(--container-width);
+    max-width: 1200px;
     height: 70px;
     z-index: 9999;
     
-    /* التعديل: استخدام خلفية كثيفة بدل Blur العنيف لتوفير الرام */
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    /* رصاصي شفاف (نسبة 95% تعتيم) - شفافية خفيفة جداً */
+    background: rgba(226, 232, 240, 0.90) !important; 
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
     border-radius: 20px;
-    
     display: flex;
     align-items: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+
     
-    /* تفعيل تسريع كارت الشاشة */
-    will-change: transform, background;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* حالة السكرول - (رصاصي أدكن وشفافية أقل للفصل) */
+.navbar.scrolled {
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 65px !important;
+    border-radius: 0 0 15px 15px !important;
+
+    /* رصاصي أدكن (Slate Gray) بشفافية 98% (شبه معتمة) */
+    background: rgba(203, 213, 225, 0.98) !important; 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* الدارك مود - رصاصي غامق شفاف */
 html.dark .navbar {
-    background: rgba(15, 23, 42, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 41, 59, 0.92) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.98) !important;
 }
 
 .nav-container {
@@ -163,10 +177,12 @@ html.dark .navbar {
     font-size: clamp(1.1rem, 4vw, 1.3rem);
     color: var(--primary);
     text-decoration: none;
-    white-space: nowrap;
+    z-index: 10001;
 }
 
-/* الروابط (Desktop) */
+/* ==========================================================================
+   2. الروابط (الديسكتوب)
+   ========================================================================== */
 .nav-links {
     display: flex;
     gap: 1.5rem;
@@ -176,93 +192,116 @@ html.dark .navbar {
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-main);
     text-decoration: none;
-    transition: 0.2s;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav-links a:hover { color: var(--primary); }
+.menu-header, .menu-icon { display: none; }
 
-/* الأزرار */
+/* ==========================================================================
+   3. الأزرار والـ Actions
+   ========================================================================== */
 .nav-actions {
     display: flex;
-    gap: 0.6rem;
+    gap: 0.8rem;
     align-items: center;
+    z-index: 10001;
 }
 
 .icon-btn {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
     color: var(--text-main);
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: clamp(36px, 8vw, 40px);
+    height: clamp(36px, 8vw, 40px);
+    border-radius: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.2s;
-}
-
-.icon-btn:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-2px);
+    transition: 0.3s;
 }
 
 .mobile-menu-btn {
     display: none;
     background: var(--primary);
-    color: white;
+    color: white !important;
     border: none;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: clamp(38px, 9vw, 42px);
+    height: clamp(38px, 9vw, 42px);
+    border-radius: 12px;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 
-/* --- Mobile Menu (Sidebar) --- */
+/* ==========================================================================
+   4. الموبايل - أنيميشن الستارة
+   ========================================================================== */
 @media (max-width: 992px) {
-    .mobile-menu-btn { display: flex; }
+    .mobile-menu-btn { display: flex !important; }
 
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; /* مخفي يميناً */
-        width: 280px;
-        height: 100vh;
-        background: var(--bg-card);
-        flex-direction: column;
-        padding: 80px 2rem;
-        gap: 1.5rem;
-        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-        z-index: 10000;
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        /* منيو الموبايل برضه رصاصي شفاف شيك */
+        background: rgba(241, 245, 249, 0.96) !important; 
+        backdrop-filter: blur(10px);
+        flex-direction: column !important;
+        padding: 100px 1.5rem 2.5rem !important;
+        gap: 0.5rem !important;
+        z-index: 10000 !important;
+        border-radius: 0 0 35px 35px !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
     }
 
-    .nav-links.active { right: 0; }
+    .nav-links.active { 
+        display: flex !important; 
+        animation: slideDownMenu 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes slideDownMenu {
+        from { opacity: 0; transform: translateY(-100%); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-header {
+        display: block !important;
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: var(--primary);
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .nav-links a {
+        justify-content: center !important;
+        padding: 1.2rem !important;
+        border-radius: 18px !important;
+        background: rgba(0,0,0,0.03);
+    }
+
+    .menu-icon { display: block !important; width: 22px; height: 22px; }
 
     .nav-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.4);
-        z-index: 9998;
+        position: fixed !important;
+        inset: 0 !important;
+        background: rgba(0,0,0,0.5) !important;
+        z-index: 9998 !important;
         display: none;
     }
-
-    .nav-overlay.active { display: block; }
-}
-
-/* حالة السكرول */
-.navbar.scrolled {
-    top: 0;
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0 0 15px 15px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.98);
+    .nav-overlay.active { display: block !important; }
 }
 /* -----------------------------------------------------------
    4. HERO SECTION - ULTRA DYNAMIC & RESPONSIVE
