@@ -27,38 +27,38 @@
 
 <body>
     <nav class="navbar" id="main-nav">
-    <div class="nav-container">
-        <a href="#" class="logo" data-i18n="logo">Mohamed Gomaa</a>
+        <div class="nav-container">
+            <a href="#" class="logo" data-i18n="logo">Mohamed Gomaa</a>
 
-        <div class="nav-menu" id="nav-menu">
-            <ul class="nav-links">
-                <li><a href="#about" data-i18n="navAbout">About</a></li>
-                <li><a href="#education" data-i18n="navEducation">Education</a></li>
-                <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
-                <li><a href="#services" data-i18n="navServices">Services</a></li>
-                <li><a href="#projects" data-i18n="navWork">Work</a></li>
-                <li><a href="#contact" class="active" data-i18n="navContact">Contact</a></li>
-            </ul>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#about" data-i18n="navAbout">About</a></li>
+                    <li><a href="#education" data-i18n="navEducation">Education</a></li>
+                    <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+                    <li><a href="#services" data-i18n="navServices">Services</a></li>
+                    <li><a href="#projects" data-i18n="navWork">Work</a></li>
+                    <li><a href="#contact" class="active" data-i18n="navContact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme">
+                    <i data-lucide="moon" class="moon-icon"></i>
+                    <i data-lucide="sun" class="sun-icon" style="display:none;"></i>
+                </button>
+
+                <button class="icon-btn lang-btn" id="lang-toggle" aria-label="Switch Language">
+                    <span id="lang-text">AR</span>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                    <i data-lucide="menu" id="menu-icon"></i>
+                </button>
+            </div>
         </div>
+    </nav>
 
-        <div class="nav-actions">
-            <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme">
-                <i data-lucide="moon" class="moon-icon"></i>
-                <i data-lucide="sun" class="sun-icon" style="display:none;"></i>
-            </button>
-
-            <button class="icon-btn lang-btn" id="lang-toggle" aria-label="Switch Language">
-                <span id="lang-text">AR</span>
-            </button>
-
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
-                <i data-lucide="menu" id="menu-icon"></i>
-            </button>
-        </div>
-    </div>
-</nav>
-
-<div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-overlay" id="nav-overlay"></div>
 
     <section class="hero" id="about">
         <div class="hero-bg"></div>
@@ -67,7 +67,7 @@
 
         <div class="container hero-content">
             <div class="hero-text reveal">
-                
+
 
                 <h1 class="font-outfit">
                     <span data-i18n="heroNamePrefix">Hi, I’m</span> <span class="text-gradient">Mohamed Gomaa</span>
@@ -202,294 +202,311 @@
     </section>
 
     <section id="skills" class="skills-section">
-    <div class="container">
-        <div class="section-header reveal">
-            <h2 data-i18n="skillsTitle">Technical Toolkit</h2>
-            <p class="skills-subtitle" data-i18n="skillsSubtitle">
-                Practical tools I use to clean, model, visualize, and deploy insights.
-            </p>
-        </div>
-
-        <div class="modern-skills-grid reveal">
-            <div class="skill-module-v3">
-                <div class="module-main">
-                    <div class="module-icon"><i data-lucide="terminal"></i></div>
-                    <div class="module-content">
-                        <div class="title-flex">
-                            <h3>Python</h3>
-                            <span class="skill-status" data-level="expert" data-i18n="levelExpert">Expert</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tags-cloud">
-                    <span class="tag">Pandas</span>
-                    <span class="tag">NumPy</span>
-                    <span class="tag">Scikit-Learn</span>
-                    <span class="tag">Seaborn</span>
-                </div>
-            </div>
-
-            <div class="skill-module-v3">
-                <div class="module-main">
-                    <div class="module-icon"><i data-lucide="database"></i></div>
-                    <div class="module-content">
-                        <div class="title-flex">
-                            <h3>SQL</h3>
-                            <span class="skill-status" data-level="professional" data-i18n="levelProfessional">Professional</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tags-cloud">
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">Joins</span>
-                    <span class="tag">Optimization</span>
-                </div>
-            </div>
-
-            <div class="skill-module-v3">
-                <div class="module-main">
-                    <div class="module-icon"><i data-lucide="bar-chart-3"></i></div>
-                    <div class="module-content">
-                        <div class="title-flex">
-                            <h3>Power BI</h3>
-                            <span class="skill-status" data-level="expert" data-i18n="levelExpert">Expert</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tags-cloud">
-                    <span class="tag">DAX</span>
-                    <span class="tag">Modeling</span>
-                    <span class="tag">Storytelling</span>
-                    <span class="tag">Power Query</span>
-                </div>
-            </div>
-
-            <div class="skill-module-v3">
-                <div class="module-main">
-                    <div class="module-icon"><i data-lucide="table-2"></i></div>
-                    <div class="module-content">
-                        <div class="title-flex">
-                            <h3>Excel</h3>
-                            <span class="skill-status" data-level="professional" data-i18n="levelProfessional">Professional</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tags-cloud">
-                    <span class="tag">Pivots</span>
-                    <span class="tag">VBA</span>
-                    <span class="tag">Power Pivot</span>
-                    <span class="tag">Formulas</span>
-                </div>
-            </div>
-
-            <div class="skill-module-v3">
-                <div class="module-main">
-                    <div class="module-icon"><i data-lucide="cpu"></i></div>
-                    <div class="module-content">
-                        <div class="title-flex">
-                            <h3>Machine Learning</h3>
-                            <span class="skill-status" data-level="intermediate" data-i18n="levelIntermediate">Intermediate</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tags-cloud">
-                    <span class="tag">Regression</span>
-                    <span class="tag">NLP</span>
-                    <span class="tag">Clustering</span>
-                    <span class="tag">Classification</span>
-                </div>
-            </div>
-
-            <div class="skill-module-v3">
-                <div class="module-main">
-                    <div class="module-icon"><i data-lucide="cloud"></i></div>
-                    <div class="module-content">
-                        <div class="title-flex">
-                            <h3>Cloud Basics</h3>
-                            <span class="skill-status" data-level="beginner" data-i18n="levelBeginner">Beginner</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tags-cloud">
-                    <span class="tag">AWS</span>
-                    <span class="tag">Azure</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="reveal">
-    <div class="container">
-        <div class="section-header text-center mb-12">
-            <h2 class="font-outfit" data-i18n="servicesTitle">Professional Services</h2>
-            <p class="text-muted max-w-2xl mx-auto" data-i18n="servicesSubtitle">
-                Specialized data solutions to help you unlock the full potential of your business information.
-            </p>
-        </div>
-
-        <div class="services-grid">
-            
-            <div class="service-card-modern">
-                <div class="service-header-row">
-                    <div class="service-icon-box">
-                        <i data-lucide="bar-chart-big"></i>
-                    </div>
-                    <h3 class="service-title font-outfit" data-i18n="serv1Title">Data Analysis</h3>
-                </div>
-                <p class="service-description" data-i18n="serv1Desc">
-                    Transforming raw data into meaningful insights using Python and SQL to drive business growth.
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-i18n="skillsTitle">Technical Toolkit</h2>
+                <p class="skills-subtitle" data-i18n="skillsSubtitle">
+                    Practical tools I use to clean, model, visualize, and deploy insights.
                 </p>
             </div>
 
-            <div class="service-card-modern">
-                <div class="service-header-row">
-                    <div class="service-icon-box">
-                        <i data-lucide="layout-dashboard"></i>
+            <div class="modern-skills-grid reveal">
+                <div class="skill-module-v3">
+                    <div class="module-main">
+                        <div class="module-icon"><i data-lucide="terminal"></i></div>
+                        <div class="module-content">
+                            <div class="title-flex">
+                                <h3>Python</h3>
+                                <span class="skill-status" data-level="expert" data-i18n="levelExpert">Expert</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="service-title font-outfit" data-i18n="serv2Title">Dashboards</h3>
-                </div>
-                <p class="service-description" data-i18n="serv2Desc">
-                    Building dynamic reports in Power BI and Excel for real-time tracking and decision making.
-                </p>
-            </div>
-
-            <div class="service-card-modern">
-                <div class="service-header-row">
-                    <div class="service-icon-box">
-                        <i data-lucide="brain-circuit"></i>
+                    <div class="tags-cloud">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Scikit-Learn</span>
+                        <span class="tag">Seaborn</span>
                     </div>
-                    <h3 class="service-title font-outfit" data-i18n="serv3Title">ML Models</h3>
                 </div>
-                <p class="service-description" data-i18n="serv3Desc">
-                    Using Machine Learning algorithms to forecast future trends and complex business outcomes.
-                </p>
-            </div>
 
-            <div class="service-card-modern">
-                <div class="service-header-row">
-                    <div class="service-icon-box">
-                        <i data-lucide="filter"></i>
+                <div class="skill-module-v3">
+                    <div class="module-main">
+                        <div class="module-icon"><i data-lucide="database"></i></div>
+                        <div class="module-content">
+                            <div class="title-flex">
+                                <h3>SQL</h3>
+                                <span class="skill-status" data-level="professional"
+                                    data-i18n="levelProfessional">Professional</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="service-title font-outfit" data-i18n="serv4Title">Data Cleaning</h3>
+                    <div class="tags-cloud">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Joins</span>
+                        <span class="tag">Optimization</span>
+                    </div>
                 </div>
-                <p class="service-description" data-i18n="serv4Desc">
-                    Ensuring data accuracy and consistency by cleaning and structuring messy datasets.
-                </p>
-            </div>
 
+                <div class="skill-module-v3">
+                    <div class="module-main">
+                        <div class="module-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <div class="module-content">
+                            <div class="title-flex">
+                                <h3>Power BI</h3>
+                                <span class="skill-status" data-level="expert" data-i18n="levelExpert">Expert</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags-cloud">
+                        <span class="tag">DAX</span>
+                        <span class="tag">Modeling</span>
+                        <span class="tag">Storytelling</span>
+                        <span class="tag">Power Query</span>
+                    </div>
+                </div>
+
+                <div class="skill-module-v3">
+                    <div class="module-main">
+                        <div class="module-icon"><i data-lucide="table-2"></i></div>
+                        <div class="module-content">
+                            <div class="title-flex">
+                                <h3>Excel</h3>
+                                <span class="skill-status" data-level="professional"
+                                    data-i18n="levelProfessional">Professional</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags-cloud">
+                        <span class="tag">Pivots</span>
+                        <span class="tag">VBA</span>
+                        <span class="tag">Power Pivot</span>
+                        <span class="tag">Formulas</span>
+                    </div>
+                </div>
+
+                <div class="skill-module-v3">
+                    <div class="module-main">
+                        <div class="module-icon"><i data-lucide="cpu"></i></div>
+                        <div class="module-content">
+                            <div class="title-flex">
+                                <h3>Machine Learning</h3>
+                                <span class="skill-status" data-level="intermediate"
+                                    data-i18n="levelIntermediate">Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags-cloud">
+                        <span class="tag">Regression</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Clustering</span>
+                        <span class="tag">Classification</span>
+                    </div>
+                </div>
+
+                <div class="skill-module-v3">
+                    <div class="module-main">
+                        <div class="module-icon"><i data-lucide="cloud"></i></div>
+                        <div class="module-content">
+                            <div class="title-flex">
+                                <h3>Cloud Basics</h3>
+                                <span class="skill-status" data-level="beginner"
+                                    data-i18n="levelBeginner">Beginner</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags-cloud">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="services" class="reveal">
+        <div class="container">
+            <div class="section-header text-center mb-12">
+                <h2 class="font-outfit" data-i18n="servicesTitle">Professional Services</h2>
+                <p class="text-muted max-w-2xl mx-auto" data-i18n="servicesSubtitle">
+                    Specialized data solutions to help you unlock the full potential of your business information.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card-modern">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <i data-lucide="bar-chart-big"></i>
+                        </div>
+                        <h3 class="service-title font-outfit" data-i18n="serv1Title">Data Analysis</h3>
+                    </div>
+                    <p class="service-description" data-i18n="serv1Desc">
+                        Transforming raw data into meaningful insights using Python and SQL to drive business growth.
+                    </p>
+                </div>
+
+                <div class="service-card-modern">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <i data-lucide="layout-dashboard"></i>
+                        </div>
+                        <h3 class="service-title font-outfit" data-i18n="serv2Title">Dashboards</h3>
+                    </div>
+                    <p class="service-description" data-i18n="serv2Desc">
+                        Building dynamic reports in Power BI and Excel for real-time tracking and decision making.
+                    </p>
+                </div>
+
+                <div class="service-card-modern">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <i data-lucide="brain-circuit"></i>
+                        </div>
+                        <h3 class="service-title font-outfit" data-i18n="serv3Title">ML Models</h3>
+                    </div>
+                    <p class="service-description" data-i18n="serv3Desc">
+                        Using Machine Learning algorithms to forecast future trends and complex business outcomes.
+                    </p>
+                </div>
+
+                <div class="service-card-modern">
+                    <div class="service-header-row">
+                        <div class="service-icon-box">
+                            <i data-lucide="filter"></i>
+                        </div>
+                        <h3 class="service-title font-outfit" data-i18n="serv4Title">Data Cleaning</h3>
+                    </div>
+                    <p class="service-description" data-i18n="serv4Desc">
+                        Ensuring data accuracy and consistency by cleaning and structuring messy datasets.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <section id="projects" class="reveal">
-    <div class="container">
-        <div class="section-header text-center mb-12">
-            <h2 class="font-outfit font-bold text-3xl" data-i18n="projectsTitle">Selected Projects</h2>
-            <p class="text-muted" data-i18n="projectsSubtitle">Explore my data analysis journey through these featured works</p>
+        <div class="container">
+            <div class="section-header text-center mb-12">
+                <h2 class="font-outfit font-bold text-3xl" data-i18n="projectsTitle">Selected Projects</h2>
+                <p class="text-muted" data-i18n="projectsSubtitle">Explore my data analysis journey through these
+                    featured works</p>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-img-container">
+                        <img src="assets/projects/sales.png" alt="Walmart Sales Analysis" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-i18n="proj1Title">Walmart Sales Analysis — Power BI</h3>
+                        <p class="project-desc" data-i18n="proj1Desc">
+                            Analyzed sales data by exploring, cleaning, and modeling it in Power BI. Built DAX measures
+                            (MoM, YoY) and interactive dashboards.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag" data-i18n="tagPowerBI">Power BI</span>
+                            <span class="tag" data-i18n="tagDAX">DAX</span>
+                            <span class="tag" data-i18n="tagPowerQuery">Power Query</span>
+                        </div>
+
+                        <div class="project-actions-row">
+                            <a href="javascript:void(0)"
+                                onclick="openPresentation('assets/projects/1.pdf', 'Walmart Sales Analysis')"
+                                class="btn-proj btn-outline">
+                                <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
+                            </a>
+                            <a href="https://github.com/mohamed-goma-a" target="_blank"
+                                class="btn-proj btn-purple-shine">
+                                <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
+                            </a>
+                            <a href="#" target="_blank" class="btn-proj btn-outline">
+                                <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img-container">
+                        <img src="assets/projects/hr.png" alt="HR Attrition Analysis" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-i18n="proj2Title">HR Attrition Analysis — Power BI</h3>
+                        <p class="project-desc" data-i18n="proj2Desc">
+                            Created a dashboard showing how income, satisfaction, and job level impact attrition rates
+                            using Power Query and Data Modeling.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag" data-i18n="tagHR">HR Analytics</span>
+                            <span class="tag" data-i18n="tagModeling">Data Modeling</span>
+                        </div>
+
+                        <div class="project-actions-row">
+                            <a href="javascript:void(0)"
+                                onclick="openPresentation('assets/projects/2.pdf', 'HR Attrition Analysis')"
+                                class="btn-proj btn-outline">
+                                <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
+                            </a>
+                            <a href="https://github.com/mohamed-goma-a" target="_blank"
+                                class="btn-proj btn-purple-shine">
+                                <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
+                            </a>
+                            <a href="#" target="_blank" class="btn-proj btn-outline">
+                                <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-img-container">
+                        <img src="assets/projects/suberstore.png" alt="Super Store Analysis" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title" data-i18n="proj3Title">Super Store Analysis — Power BI</h3>
+                        <p class="project-desc" data-i18n="proj3Desc">
+                            Analyzed sales trends, top segments, and geographic growth to extract insights for retail
+                            business optimization.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag" data-i18n="tagRetail">Retail</span>
+                            <span class="tag" data-i18n="tagBI">Business Intelligence</span>
+                        </div>
+
+                        <div class="project-actions-row">
+                            <a href="javascript:void(0)"
+                                onclick="openPresentation('assets/projects/2.pdf', 'Super Store Analysis')"
+                                class="btn-proj btn-outline">
+                                <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
+                            </a>
+                            <a href="https://github.com/mohamed-goma-a" target="_blank"
+                                class="btn-proj btn-purple-shine">
+                                <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
+                            </a>
+                            <a href="#" target="_blank" class="btn-proj btn-outline">
+                                <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
+    </section>
 
-        <div class="projects-grid">
-            <article class="project-card">
-                <div class="project-img-container">
-                    <img src="assets/projects/sales.png" alt="Walmart Sales Analysis" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title" data-i18n="proj1Title">Walmart Sales Analysis — Power BI</h3>
-                    <p class="project-desc" data-i18n="proj1Desc">
-                        Analyzed sales data by exploring, cleaning, and modeling it in Power BI. Built DAX measures (MoM, YoY) and interactive dashboards.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag" data-i18n="tagPowerBI">Power BI</span>
-                        <span class="tag" data-i18n="tagDAX">DAX</span>
-                        <span class="tag" data-i18n="tagPowerQuery">Power Query</span>
-                    </div>
-
-                    <div class="project-actions-row">
-                        <a href="javascript:void(0)" onclick="openPresentation('assets/projects/1.pdf', 'Walmart Sales Analysis')" class="btn-proj btn-outline">
-                            <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
-                        </a>
-                        <a href="https://github.com/mohamed-goma-a" target="_blank" class="btn-proj btn-purple-shine">
-                            <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
-                        </a>
-                        <a href="#" target="_blank" class="btn-proj btn-outline">
-                            <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-img-container">
-                    <img src="assets/projects/hr.png" alt="HR Attrition Analysis" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title" data-i18n="proj2Title">HR Attrition Analysis — Power BI</h3>
-                    <p class="project-desc" data-i18n="proj2Desc">
-                        Created a dashboard showing how income, satisfaction, and job level impact attrition rates using Power Query and Data Modeling.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag" data-i18n="tagHR">HR Analytics</span>
-                        <span class="tag" data-i18n="tagModeling">Data Modeling</span>
-                    </div>
-
-                    <div class="project-actions-row">
-                        <a href="javascript:void(0)" onclick="openPresentation('assets/projects/2.pdf', 'HR Attrition Analysis')" class="btn-proj btn-outline">
-                            <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
-                        </a>
-                        <a href="https://github.com/mohamed-goma-a" target="_blank" class="btn-proj btn-purple-shine">
-                            <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
-                        </a>
-                        <a href="#" target="_blank" class="btn-proj btn-outline">
-                            <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-img-container">
-                    <img src="assets/projects/suberstore.png" alt="Super Store Analysis" class="project-img">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title" data-i18n="proj3Title">Super Store Analysis — Power BI</h3>
-                    <p class="project-desc" data-i18n="proj3Desc">
-                        Analyzed sales trends, top segments, and geographic growth to extract insights for retail business optimization.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag" data-i18n="tagRetail">Retail</span>
-                        <span class="tag" data-i18n="tagBI">Business Intelligence</span>
-                    </div>
-
-                    <div class="project-actions-row">
-                        <a href="javascript:void(0)" onclick="openPresentation('assets/projects/2.pdf', 'Super Store Analysis')" class="btn-proj btn-outline">
-                            <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
-                        </a>
-                        <a href="https://github.com/mohamed-goma-a" target="_blank" class="btn-proj btn-purple-shine">
-                            <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
-                        </a>
-                        <a href="#" target="_blank" class="btn-proj btn-outline">
-                            <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
-                        </a>
-                    </div>
-                </div>
-            </article>
+    <div id="presentationModal" class="pres-modal">
+        <div class="pres-modal-content">
+            <div class="pres-modal-header">
+                <h3 id="modalTitle">Project Presentation</h3>
+                <button class="close-pres-modal">&times;</button>
+            </div>
+            <div class="pres-modal-body">
+                <iframe id="presIframe" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
-</section>
-
-<div id="presentationModal" class="pres-modal">
-    <div class="pres-modal-content">
-        <div class="pres-modal-header">
-            <h3 id="modalTitle">Project Presentation</h3>
-            <button class="close-pres-modal">&times;</button>
-        </div>
-        <div class="pres-modal-body">
-            <iframe id="presIframe" src="" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</div>
 
     <section id="contact" class="reveal">
         <div class="container">
@@ -507,7 +524,7 @@
                     </div>
                     <h3 class="contact-method" data-i18n="methodEmail">Email</h3>
                     <p class="contact-value">mhmdjmtabwbkr@gmail.com</p>
-                    <span class="contact-link-hint"><span data-i18n="hintEmail">Send a message</span> <i
+                    <span class="contact-link-hint"><span data-i18n="hintEmail" class="contact-link-hint">Send a message</span> <i
                             data-lucide="arrow-right"></i></span>
                 </a>
 
@@ -518,8 +535,7 @@
                     </div>
                     <h3 class="contact-method" data-i18n="methodLinkedin">LinkedIn</h3>
                     <p class="contact-value">mohamed-gomaa</p>
-                    <span class="contact-link-hint"><span data-i18n="hintLinkedin">Let's connect</span> <i
-                            data-lucide="arrow-right"></i></span>
+                    <span class="contact-link-hint"><span data-i18n="hintLinkedin" class="contact-link-hint">Let's connect</span> <i data-lucide="arrow-right"></i></span>
                 </a>
 
                 <a href="https://wa.me/201204088513" target="_blank" class="contact-card group">
@@ -528,7 +544,7 @@
                     </div>
                     <h3 class="contact-method" data-i18n="methodWhatsapp">WhatsApp</h3>
                     <p class="contact-value">+20 120 408 8513</p>
-                    <span class="contact-link-hint"><span data-i18n="hintWhatsapp">Chat now</span> <i
+                    <span class="contact-link-hint"><span data-i18n="hintWhatsapp" class="contact-link-hint">Chat now</span> <i
                             data-lucide="arrow-right"></i></span>
                 </a>
             </div>
@@ -568,6 +584,5 @@
         });
     });
 </script>
-
 
 </html>
