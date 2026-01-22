@@ -2,30 +2,35 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Mohamed Goma | Data Analyst Portfolio. Skilled in Python, SQL, Power BI, Machine Learning, and Data Visualization. Explore projects, dashboards, and case studies.">
-
+        content="Mohamed Goma | Data Analyst Portfolio. Skilled in Python, SQL, Power BI, Machine Learning, and Data Visualization. Explore projects, dashboards, and case studies." />
     <meta name="keywords"
-        content="Data Analyst, Portfolio, Data Science, Python, SQL, Power BI, Excel, Data Visualization, Mohamed Goma">
+        content="Data Analyst, Portfolio, Data Science, Python, SQL, Power BI, Excel, Data Visualization, Mohamed Goma" />
+    <meta name="author" content="Mohamed Goma" />
+    <meta name="robots" content="index, follow" />
 
-    <meta name="author" content="Mohamed Goma">
-
-    <meta name="robots" content="index, follow">
     <title>Portfolio | Mohamed Gomaa</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        rel="stylesheet" />
+
+    <!-- Font Awesome (optional, you can remove if not used) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
+    <!-- NAVBAR -->
     <nav class="navbar" id="main-nav">
         <div class="nav-container">
             <a href="#" class="logo" data-i18n="logo">Mohamed Gomaa</a>
@@ -51,7 +56,7 @@
                     <span id="lang-text">AR</span>
                 </button>
 
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu">
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu" aria-expanded="false">
                     <i data-lucide="menu" id="menu-icon"></i>
                 </button>
             </div>
@@ -60,6 +65,7 @@
 
     <div class="nav-overlay" id="nav-overlay"></div>
 
+    <!-- HERO / ABOUT -->
     <section class="hero" id="about">
         <div class="hero-bg"></div>
         <div class="blob blob-1"></div>
@@ -67,8 +73,6 @@
 
         <div class="container hero-content">
             <div class="hero-text reveal">
-
-
                 <h1 class="font-outfit">
                     <span data-i18n="heroNamePrefix">Hi, I’m</span> <span class="text-gradient">Mohamed Gomaa</span>
                     <br />
@@ -118,7 +122,7 @@
         </div>
     </section>
 
-
+    <!-- EDUCATION -->
     <section id="education" class="container reveal">
         <div class="section-header">
             <h2 class="font-outfit" data-i18n="eduTitle">Education & Certifications</h2>
@@ -195,12 +199,14 @@
             </article>
         </div>
 
-        <div id="imgModal" class="modal">
-            <span class="modal-close">&times;</span>
-            <img class="modal-content" id="modalImg">
+        <!-- Image Modal -->
+        <div id="imgModal" class="modal" aria-hidden="true">
+            <span class="modal-close" role="button" aria-label="Close Modal">&times;</span>
+            <img class="modal-content" id="modalImg" alt="Certificate Preview" />
         </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header reveal">
@@ -324,6 +330,7 @@
         </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services" class="reveal">
         <div class="container">
             <div class="section-header text-center mb-12">
@@ -334,7 +341,6 @@
             </div>
 
             <div class="services-grid">
-
                 <div class="service-card-modern">
                     <div class="service-header-row">
                         <div class="service-icon-box">
@@ -382,46 +388,51 @@
                         Ensuring data accuracy and consistency by cleaning and structuring messy datasets.
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects" class="reveal">
         <div class="container">
             <div class="section-header text-center mb-12">
                 <h2 class="font-outfit font-bold text-3xl" data-i18n="projectsTitle">Selected Projects</h2>
-                <p class="text-muted" data-i18n="projectsSubtitle">Explore my data analysis journey through these
-                    featured works</p>
+                <p class="text-muted" data-i18n="projectsSubtitle">
+                    Explore my data analysis journey through these featured works
+                </p>
             </div>
 
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-img-container">
-                        <img src="assets/projects/sales.png" alt="Walmart Sales Analysis" class="project-img">
+                        <img src="assets/projects/sales.png" alt="Walmart Sales Analysis" class="project-img" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="proj1Title">Walmart Sales Analysis — Power BI</h3>
                         <p class="project-desc" data-i18n="proj1Desc">
                             Analyzed sales data by exploring, cleaning, and modeling it in Power BI. Built DAX measures
-                            (MoM, YoY) and interactive dashboards.
+                            (MoM, YoY) and
+                            interactive dashboards.
                         </p>
+
                         <div class="project-tags">
                             <span class="tag" data-i18n="tagPowerBI">Power BI</span>
-                            <span class="tag" data-i18n="tagDAX">DAX</span>
-                            <span class="tag" data-i18n="tagPowerQuery">Power Query</span>
+                            <span class="tag">DAX</span>
+                            <span class="tag">Power Query</span>
                         </div>
 
                         <div class="project-actions-row">
                             <a href="javascript:void(0)"
-                                onclick="openPresentation('assets/projects/1.pdf', 'Walmart Sales Analysis')"
+                                onclick="openPresentation('assets/projects/1.pdf','Walmart Sales Analysis')"
                                 class="btn-proj btn-outline">
                                 <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
                             </a>
+
                             <a href="https://github.com/mohamed-goma-a" target="_blank"
                                 class="btn-proj btn-purple-shine btn-primary">
                                 <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
                             </a>
+
                             <a href="#" target="_blank" class="btn-proj btn-outline">
                                 <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
                             </a>
@@ -431,29 +442,33 @@
 
                 <article class="project-card">
                     <div class="project-img-container">
-                        <img src="assets/projects/hr.png" alt="HR Attrition Analysis" class="project-img">
+                        <img src="assets/projects/hr.png" alt="HR Attrition Analysis" class="project-img" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="proj2Title">HR Attrition Analysis — Power BI</h3>
                         <p class="project-desc" data-i18n="proj2Desc">
                             Created a dashboard showing how income, satisfaction, and job level impact attrition rates
-                            using Power Query and Data Modeling.
+                            using Power
+                            Query and Data Modeling.
                         </p>
+
                         <div class="project-tags">
                             <span class="tag" data-i18n="tagHR">HR Analytics</span>
-                            <span class="tag" data-i18n="tagModeling">Data Modeling</span>
+                            <span class="tag">Data Modeling</span>
                         </div>
 
                         <div class="project-actions-row">
                             <a href="javascript:void(0)"
-                                onclick="openPresentation('assets/projects/2.pdf', 'HR Attrition Analysis')"
+                                onclick="openPresentation('assets/projects/2.pdf','HR Attrition Analysis')"
                                 class="btn-proj btn-outline">
                                 <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
                             </a>
+
                             <a href="https://github.com/mohamed-goma-a" target="_blank"
                                 class="btn-proj btn-purple-shine btn-primary">
                                 <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
                             </a>
+
                             <a href="#" target="_blank" class="btn-proj btn-outline">
                                 <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
                             </a>
@@ -463,44 +478,50 @@
 
                 <article class="project-card">
                     <div class="project-img-container">
-                        <img src="assets/projects/suberstore.png" alt="Super Store Analysis" class="project-img">
+                        <img src="assets/projects/suberstore.png" alt="Super Store Analysis" class="project-img" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="proj3Title">Super Store Analysis — Power BI</h3>
                         <p class="project-desc" data-i18n="proj3Desc">
                             Analyzed sales trends, top segments, and geographic growth to extract insights for retail
-                            business optimization.
+                            business
+                            optimization.
                         </p>
+
                         <div class="project-tags">
                             <span class="tag" data-i18n="tagRetail">Retail</span>
-                            <span class="tag" data-i18n="tagBI">Business Intelligence</span>
+                            <span class="tag">Business Intelligence</span>
                         </div>
 
                         <div class="project-actions-row">
                             <a href="javascript:void(0)"
-                                onclick="openPresentation('assets/projects/2.pdf', 'Super Store Analysis')"
+                                onclick="openPresentation('assets/projects/2.pdf','Super Store Analysis')"
                                 class="btn-proj btn-outline">
                                 <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
                             </a>
+
                             <a href="https://github.com/mohamed-goma-a" target="_blank"
                                 class="btn-proj btn-purple-shine btn-primary">
                                 <i data-lucide="github"></i><span data-i18n="btnCode">Code</span>
                             </a>
+
                             <a href="#" target="_blank" class="btn-proj btn-outline">
                                 <i data-lucide="external-link"></i><span data-i18n="btnDemo">Demo</span>
                             </a>
                         </div>
                     </div>
                 </article>
+
             </div>
         </div>
     </section>
 
-    <div id="presentationModal" class="pres-modal">
+    <!-- PRESENTATION MODAL -->
+    <div id="presentationModal" class="pres-modal" aria-hidden="true">
         <div class="pres-modal-content">
             <div class="pres-modal-header">
                 <h3 id="modalTitle">Project Presentation</h3>
-                <button class="close-pres-modal">&times;</button>
+                <button class="close-pres-modal" aria-label="Close Presentation">&times;</button>
             </div>
             <div class="pres-modal-body">
                 <iframe id="presIframe" src="" frameborder="0" allowfullscreen></iframe>
@@ -508,13 +529,14 @@
         </div>
     </div>
 
+    <!-- CONTACT -->
     <section id="contact" class="reveal">
         <div class="container">
             <div class="section-header text-center mb-12">
                 <h2 class="font-outfit font-bold text-3xl" data-i18n="contactTitle">Get In Touch</h2>
-                <p class="text-muted" data-i18n="contactSubtitle">Feel free to reach out through email, LinkedIn, or
-                    WhatsApp. I’m always open to new
-                    opportunities.</p>
+                <p class="text-muted" data-i18n="contactSubtitle">
+                    Feel free to reach out through email, LinkedIn, or WhatsApp. I’m always open to new opportunities.
+                </p>
             </div>
 
             <div class="contact-grid">
@@ -524,8 +546,10 @@
                     </div>
                     <h3 class="contact-method" data-i18n="methodEmail">Email</h3>
                     <p class="contact-value">mhmdjmtabwbkr@gmail.com</p>
-                    <span class="contact-link-hint"><span data-i18n="hintEmail" class="contact-link-hint">Send a message</span> <i
-                            data-lucide="arrow-right"></i></span>
+                    <span class="contact-link-hint">
+                        <span data-i18n="hintEmail">Send a message</span>
+                        <i data-lucide="arrow-right"></i>
+                    </span>
                 </a>
 
                 <a href="https://www.linkedin.com/in/mohamed-gomaa-481780375/" target="_blank"
@@ -535,7 +559,10 @@
                     </div>
                     <h3 class="contact-method" data-i18n="methodLinkedin">LinkedIn</h3>
                     <p class="contact-value">mohamed-gomaa</p>
-                    <span class="contact-link-hint"><span data-i18n="hintLinkedin" class="contact-link-hint">Let's connect</span> <i data-lucide="arrow-right"></i></span>
+                    <span class="contact-link-hint">
+                        <span data-i18n="hintLinkedin">Let's connect</span>
+                        <i data-lucide="arrow-right"></i>
+                    </span>
                 </a>
 
                 <a href="https://wa.me/201204088513" target="_blank" class="contact-card group">
@@ -544,45 +571,29 @@
                     </div>
                     <h3 class="contact-method" data-i18n="methodWhatsapp">WhatsApp</h3>
                     <p class="contact-value">+20 120 408 8513</p>
-                    <span class="contact-link-hint"><span data-i18n="hintWhatsapp" class="contact-link-hint">Chat now</span> <i
-                            data-lucide="arrow-right"></i></span>
+                    <span class="contact-link-hint">
+                        <span data-i18n="hintWhatsapp">Chat now</span>
+                        <i data-lucide="arrow-right"></i>
+                    </span>
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p data-i18n="footerText">&copy; 2026 Mohamed Gomaa. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Scroll Top -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
         <i data-lucide="arrow-up"></i>
     </button>
+
+    <!-- MAIN SCRIPT -->
     <script src="script.js"></script>
 </body>
-
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-    lucide.createIcons();
-</script>
-<script>
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const target = document.querySelector(this.getAttribute('href'));
-            if (!target) return;
-
-            const topOffset = target.getBoundingClientRect().top + window.pageYOffset;
-
-            window.scrollTo({
-                top: topOffset,
-                behavior: "smooth"
-            });
-        });
-    });
-</script>
 
 </html>
