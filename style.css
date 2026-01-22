@@ -1,4 +1,4 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' /* =========================================================/* =========================================================
+/* =========================================================
    Mohamed Gomaa Portfolio — FINAL Unified CSS (FULL)
    Covers: Navbar, Hero, Education, Skills, Services, Projects,
    Contact, Modals, Footer, ScrollTop + Responsive Stages
@@ -1315,5 +1315,3 @@ footer{
     box-shadow:none;
   }
 }
-
-
