@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohamed Gomaa | Resume" />
+  <title>Resume | Mohamed Gomaa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="navbar" id="main-nav">
+    <div class="nav-container">
+      <a href="index.html#about" class="logo" data-i18n="logo">Mohamed Gomaa</a>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html#about" data-i18n="navAbout">About</a></li>
+          <li><a href="index.html#education" data-i18n="navEducation">Education</a></li>
+          <li><a href="index.html#skills" data-i18n="navSkills">Skills</a></li>
+          <li><a href="index.html#services" data-i18n="navServices">Services</a></li>
+          <li><a href="index.html#projects" data-i18n="navWork">Work</a></li>
+          <li><a href="index.html#contact" data-i18n="navContact">Contact</a></li>
+          <li><a href="resume.html" class="active" data-i18n="navResume">Resume</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme">
+          <i data-lucide="moon" class="moon-icon"></i>
+          <i data-lucide="sun" class="sun-icon" style="display:none;"></i>
+        </button>
+
+        <button class="icon-btn lang-btn" id="lang-toggle" aria-label="Switch Language">
+          <span id="lang-text">AR</span>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Menu" aria-expanded="false">
+          <i data-lucide="menu" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <main class="container" style="padding-top:calc(var(--nav-height) + 3.5rem); padding-bottom:4rem;">
+    <header class="section-header">
+      <h1 class="font-outfit" data-i18n="resumeTitle">Resume</h1>
+      <p data-i18n="resumeSubtitle">View or download my resume as a PDF.</p>
+    </header>
+
+    <div class="btn-group" style="justify-content:center; margin-bottom:1.25rem;">
+      <a class="btn btn-primary" href="assets/resume/resume.pdf" download>
+        <span data-i18n="resumeDownload">Download PDF</span>
+        <i data-lucide="download" class="icon-sm"></i>
+      </a>
+      <a class="btn btn-outline" href="index.html#projects">
+        <span data-i18n="resumeBack">Back to Projects</span>
+        <i data-lucide="arrow-right" class="icon-sm"></i>
+      </a>
+    </div>
+
+    <section class="card" style="padding:1rem;">
+      <div style="border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--bg-card);">
+        <iframe title="Resume PDF" src="assets/resume/resume.pdf" style="width:100%; height:min(78vh, 900px); border:0;">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+

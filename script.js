@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     en: {
       logo: "Mohamed Gomaa",
       navAbout: "About", navServices: "Services", navSkills: "Skills",
-      navWork: "Work", navEducation: "Education", navContact: "Contact",
+      navWork: "Work", navEducation: "Education", navResume: "Resume", navContact: "Contact",
       heroGreeting: "Hi, I’m Mohamed Gomaa", heroName: "Hi, I’m",
       heroRole: "Data Analyst",
       heroDesc: "I specialize in transforming raw data into actionable insights. Skilled in Python, SQL, Excel, and Power BI, I help businesses make confident, data-driven decisions.",
-      btnContact: "Get in touch", btnPortfolio: "View portfolio",
+      btnContact: "Get in touch", btnPortfolio: "View portfolio", btnResume: "Resume",
       statusText: "Available for Consulting",
       eduTitle: "Education & Certifications", eduDesc: "My academic journey and professional certifications.",
       edu1Title: "Google Data Analytics Certificate", edu1Desc: "Intensive program covering SQL, R, dashboards, and data storytelling.",
@@ -42,15 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
       methodEmail: "Email", methodLinkedin: "LinkedIn", methodWhatsapp: "WhatsApp",
       hintEmail: "Send a message", hintLinkedin: "Let's connect", hintWhatsapp: "Chat now",
       footerText: "© 2026 Mohamed Gomaa. All rights reserved."
+      ,
+      resumeTitle: "Resume",
+      resumeSubtitle: "View or download my resume as a PDF.",
+      resumeDownload: "Download PDF",
+      resumeBack: "Back to Projects"
     },
     ar: {
       logo: "محمد جمعه",
       navAbout: "من أنا", navServices: "الخدمات", navSkills: "المهارات",
-      navEducation: "تعليمي", navWork: "أعمالي", navContact: "اتصل بي",
+      navEducation: "تعليمي", navWork: "أعمالي", navResume: "السيرة الذاتية", navContact: "اتصل بي",
       heroGreeting: "مرحباً، أنا محمد جمعة", heroName: "مرحباً، أنا",
       heroRole: "محلل بيانات",
       heroDesc: "أنا متخصص في تحويل البيانات الخام إلى رؤى قابلة للتنفيذ. متمكن من Python و SQL و Excel و Power BI، أساعد الشركات على اتخاذ قرارات واثقة قائمة على البيانات.",
-      btnContact: "تواصل معي", btnPortfolio: "عرض أعمالي",
+      btnContact: "تواصل معي", btnPortfolio: "عرض أعمالي", btnResume: "السيرة الذاتية",
       statusText: "متاح للاستشارات",
       eduTitle: "التعليم والشهادات", eduDesc: "رحلتي الأكاديمية والشهادات المهنية.",
       edu1Title: "شهادة جوجل لتحليل البيانات", edu1Desc: "برنامج مكثف يغطي SQL و R ولوحات البيانات وسرد القصص بالبيانات.",
@@ -75,7 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
       contactSubtitle: "لا تتردد في التواصل عبر البريد الإلكتروني أو LinkedIn أو WhatsApp. أنا متاح دائماً للفرص الجديدة.",
       methodEmail: "البريد الإلكتروني", methodLinkedin: "لينكد إن", methodWhatsapp: "واتساب",
       hintEmail: "أرسل رسالة", hintLinkedin: "لنكن على اتصال", hintWhatsapp: "تحدث الآن",
-      footerText: "© 2026 جميع الحقوق محفوظة لمحمد جمعة."
+      footerText: "© 2026 جميع الحقوق محفوظة لمحمد جمعة.",
+      resumeTitle: "السيرة الذاتية",
+      resumeSubtitle: "يمكنك عرض السيرة الذاتية أو تنزيلها بصيغة PDF.",
+      resumeDownload: "تنزيل PDF",
+      resumeBack: "العودة إلى المشاريع"
     }
   };
 
@@ -108,12 +117,12 @@ document.addEventListener('DOMContentLoaded', () => {
       else el.textContent = val;
     });
 
-    // Update hero heading (preserve gradient span)
+    // Update hero heading (keep name phrase in one line)
     const heroH1 = document.querySelector('.hero-text h1');
     if (heroH1) {
       heroH1.innerHTML = (lang === 'ar')
-        ? `مرحباً، أنا <span class="text-gradient">محمد جمعة</span><br>محلل بيانات`
-        : `Hi, I’m <span class="text-gradient">Mohamed Gomaa</span><br>Data Analyst`;
+        ? `<span class="hero-name-line">مرحباً، أنا <span class="text-gradient">محمد جمعة</span></span><br>محلل بيانات`
+        : `<span class="hero-name-line">Hi, I’m <span class="text-gradient">Mohamed Gomaa</span></span><br>Data Analyst`;
     }
 
     // Helper to update simple text nodes

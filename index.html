@@ -43,6 +43,7 @@
                     <li><a href="#services" data-i18n="navServices">Services</a></li>
                     <li><a href="#projects" data-i18n="navWork">Work</a></li>
                     <li><a href="#contact" class="active" data-i18n="navContact">Contact</a></li>
+                    <li><a href="resume.html" data-i18n="navResume">Resume</a></li>
                 </ul>
             </div>
 
@@ -74,7 +75,10 @@
         <div class="container hero-content">
             <div class="hero-text reveal">
                 <h1 class="font-outfit">
-                    <span data-i18n="heroNamePrefix">Hi, I’m</span> <span class="text-gradient">Mohamed Gomaa</span>
+                    <span class="hero-name-line">
+                        <span data-i18n="heroNamePrefix">Hi, I’m</span>
+                        <span class="text-gradient">Mohamed Gomaa</span>
+                    </span>
                     <br />
                     <span data-i18n="heroRole">Data Analyst</span>
                 </h1>
@@ -96,15 +100,9 @@
                         <i data-lucide="eye" class="icon-sm"></i>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/mohamed-gomaa-481780375/" target="_blank"
-                        class="btn btn-outline">
-                        LinkedIn
-                        <i data-lucide="linkedin" class="icon-sm"></i>
-                    </a>
-
-                    <a href="https://github.com/mohamed-goma-a" target="_blank" class="btn btn-outline">
-                        GitHub
-                        <i data-lucide="github" class="icon-sm"></i>
+                    <a href="resume.html" class="btn btn-outline">
+                        <span data-i18n="btnResume">Resume</span>
+                        <i data-lucide="file-text" class="icon-sm"></i>
                     </a>
                 </div>
             </div>
@@ -132,8 +130,8 @@
         <div class="education-grid">
             <article class="card certificate-card group">
                 <div class="cert-img-container">
-                    <img src="assets/Certifications/nti.png" alt="NTI Certificate" class="certificate-img trigger-modal"
-                        data-src="assets/Certifications/nti.png" />
+                    <img src="assets/certifications/nti.png" alt="NTI Certificate" class="certificate-img trigger-modal"
+                        data-src="assets/certifications/nti.png" />
                 </div>
 
                 <div class="cert-content">
@@ -157,7 +155,7 @@
                         <i data-lucide="linkedin"></i>
                         <span data-i18n="viewLinkedin">View on LinkedIn</span>
                     </a>
-                    <button class="btn-cert btn-outline trigger-modal" data-src="assets/Certifications/nti.png">
+                    <button class="btn-cert btn-outline trigger-modal" data-src="assets/certifications/nti.png">
                         <i data-lucide="eye"></i>
                         <span data-i18n="viewBtn">View</span>
                     </button>
@@ -166,8 +164,8 @@
 
             <article class="card certificate-card group">
                 <div class="cert-img-container">
-                    <img src="assets/Certifications/nvidia.png" alt="NVIDIA Certificate"
-                        class="certificate-img trigger-modal" data-src="assets/Certifications/nvidia.png" />
+                    <img src="assets/certifications/nvidia.png" alt="NVIDIA Certificate"
+                        class="certificate-img trigger-modal" data-src="assets/certifications/nvidia.png" />
                 </div>
 
                 <div class="cert-content">
@@ -191,7 +189,7 @@
                         <i data-lucide="linkedin"></i>
                         <span data-i18n="viewLinkedin">View on LinkedIn</span>
                     </a>
-                    <button class="btn-cert btn-outline trigger-modal" data-src="assets/Certifications/nvidia.png">
+                    <button class="btn-cert btn-outline trigger-modal" data-src="assets/certifications/nvidia.png">
                         <i data-lucide="eye"></i>
                         <span data-i18n="viewBtn">View</span>
                     </button>
@@ -405,7 +403,8 @@
             <div class="projects-grid">
                 <article class="project-card">
                     <div class="project-img-container">
-                        <img src="assets/projects/sales.png" alt="Walmart Sales Analysis" class="project-img" />
+                        <img src="assets/projects/walmart-sales/cover.png" alt="Walmart Sales Analysis"
+                            class="project-img" loading="lazy" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="proj1Title">Walmart Sales Analysis — Power BI</h3>
@@ -415,6 +414,11 @@
                             interactive dashboards.
                         </p>
 
+                        <ul class="project-highlights" aria-label="Key insights">
+                            <li><span class="dot"></span><span>MoM / YoY KPI tracking + drill-down views</span></li>
+                            <li><span class="dot"></span><span>Clean data model + reusable measures</span></li>
+                        </ul>
+
                         <div class="project-tags">
                             <span class="tag" data-i18n="tagPowerBI">Power BI</span>
                             <span class="tag">DAX</span>
@@ -423,7 +427,7 @@
 
                         <div class="project-actions-row">
                             <a href="javascript:void(0)"
-                                onclick="openPresentation('assets/projects/1.pdf','Walmart Sales Analysis')"
+                                onclick="openPresentation('assets/projects/walmart-sales/slides.pdf','Walmart Sales Analysis')"
                                 class="btn-proj btn-outline">
                                 <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
                             </a>
@@ -442,7 +446,8 @@
 
                 <article class="project-card">
                     <div class="project-img-container">
-                        <img src="assets/projects/hr.png" alt="HR Attrition Analysis" class="project-img" />
+                        <img src="assets/projects/hr-attrition/cover.png" alt="HR Attrition Analysis" class="project-img"
+                            loading="lazy" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="proj2Title">HR Attrition Analysis — Power BI</h3>
@@ -452,6 +457,11 @@
                             Query and Data Modeling.
                         </p>
 
+                        <ul class="project-highlights" aria-label="Key insights">
+                            <li><span class="dot"></span><span>Attrition drivers by role, income, satisfaction</span></li>
+                            <li><span class="dot"></span><span>Clear segmentation for targeted retention actions</span></li>
+                        </ul>
+
                         <div class="project-tags">
                             <span class="tag" data-i18n="tagHR">HR Analytics</span>
                             <span class="tag">Data Modeling</span>
@@ -459,7 +469,7 @@
 
                         <div class="project-actions-row">
                             <a href="javascript:void(0)"
-                                onclick="openPresentation('assets/projects/2.pdf','HR Attrition Analysis')"
+                                onclick="openPresentation('assets/projects/hr-attrition/slides.pdf','HR Attrition Analysis')"
                                 class="btn-proj btn-outline">
                                 <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
                             </a>
@@ -478,7 +488,8 @@
 
                 <article class="project-card">
                     <div class="project-img-container">
-                        <img src="assets/projects/suberstore.png" alt="Super Store Analysis" class="project-img" />
+                        <img src="assets/projects/superstore/cover.png" alt="Super Store Analysis" class="project-img"
+                            loading="lazy" />
                     </div>
                     <div class="project-content">
                         <h3 class="project-title" data-i18n="proj3Title">Super Store Analysis — Power BI</h3>
@@ -488,6 +499,11 @@
                             optimization.
                         </p>
 
+                        <ul class="project-highlights" aria-label="Key insights">
+                            <li><span class="dot"></span><span>Profitability by category/region and trend analysis</span></li>
+                            <li><span class="dot"></span><span>High-impact segments surfaced for action</span></li>
+                        </ul>
+
                         <div class="project-tags">
                             <span class="tag" data-i18n="tagRetail">Retail</span>
                             <span class="tag">Business Intelligence</span>
@@ -495,7 +511,7 @@
 
                         <div class="project-actions-row">
                             <a href="javascript:void(0)"
-                                onclick="openPresentation('assets/projects/2.pdf','Super Store Analysis')"
+                                onclick="openPresentation('assets/projects/superstore/slides.pdf','Super Store Analysis')"
                                 class="btn-proj btn-outline">
                                 <i data-lucide="presentation"></i><span data-i18n="btnSlides">Slides</span>
                             </a>
