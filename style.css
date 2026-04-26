@@ -1267,165 +1267,332 @@ footer{
   box-shadow:0 18px 35px rgba(14,165,168,.22);
 }
 
+
+
 /* -----------------------------------------------------------
    15) Responsive Stages
 ----------------------------------------------------------- */
 
-/* A) Big screens (default already) */
+/* A) Big screens (الوضع الافتراضي) */
 
-/* B) <= 992px (Tablets & down) */
-@media (max-width: 992px){
-  :root{
-    --nav-btn:40px;
-    --nav-icon:19px;
-    --btn-pad-y:.82rem; /* أقصر */
-    --btn-pad-x:1.15rem;
+/* B) <= 992px (Tablets & Landscape) */
+@media (max-width: 992px) {
+  :root {
+    --nav-btn: 40px;
+    --nav-icon: 19px;
+    --btn-pad-y: .82rem;
+    --btn-pad-x: 1.15rem;
   }
 
-  section{padding:4.5rem 0;}
-  .section-header{margin-bottom:3.1rem;}
+  section { padding: 4.5rem 0; }
+  .section-header { margin-bottom: 3.1rem; }
 
-  /* ✅ Hero: image on top */
-  .hero-content{
-    grid-template-columns:1fr!important;
-    text-align:center!important;
-    gap:2.4rem!important;
+  /* Hero: Image on top */
+  .hero-content {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 2.4rem !important;
   }
-  .hero-text{align-items:center!important;}
-  .btn-group{justify-content:center!important;}
-  .hero-visual{
-    order:-1!important;
-    margin-inline:auto!important;
-    max-width:360px!important;
+
+  .hero-text { align-items: center !important; }
+  .btn-group { justify-content: center !important; }
+
+  .hero-visual {
+    order: -1 !important;
+    margin-inline: auto !important;
+    max-width: 80vw !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .profile-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .profile-img {
+    width: 100% !important;
+    max-width: 400px !important; /* حجم منطقي للتابلت */
+    height: auto !important;
+    border-radius: 20px !important;
   }
 }
 
-/* C) Small Tablet 577–768 */
-@media (max-width:768px) and (min-width:577px){
-  section{padding:4rem 0;}
-  .section-header{margin-bottom:2.7rem;}
+/* C) Small Tablet 577px – 768px */
+@media (max-width: 768px) and (min-width: 577px) {
+  section { padding: 4rem 0; }
+  .section-header { margin-bottom: 2.7rem; }
 
-  .hero{padding-top:calc(var(--nav-height) + 2.2rem)!important;}
-  .hero-content{gap:2.2rem!important;}
-  .hero-visual{max-width:340px!important;}
-
+  .hero { padding-top: calc(var(--nav-height) + 2.2rem) !important; }
+  
   /* Typography */
-  .hero-text h1{
-    font-size:clamp(2.0rem, 4.6vw, 2.7rem)!important;
-    line-height:1.14!important;
-  }
-  .hero-description{font-size:clamp(.96rem, 1.9vw, 1.05rem)!important;}
-  .section-header h2{font-size:clamp(1.7rem, 3.2vw, 2.1rem)!important;}
-
-  /* ✅ Hero buttons: under each other + shorter height */
-  .btn-group{
-    width:100%;
-    flex-direction:column;
-    align-items:stretch;
-    gap:.6rem;
-  }
-  .btn{
-    width:100%;
-    padding:.68rem 1.05rem!important; /* أقصر */
-    min-height:40px!important;
-    font-size:.90rem!important;
+  .hero-text h1 {
+    font-size: clamp(2.0rem, 4.6vw, 2.7rem) !important;
+    line-height: 1.14 !important;
   }
 
-  /* ✅ Projects buttons a bit bigger */
-  .btn-proj{
-    height:46px!important;
-    font-size:.84rem!important;
+  /* Buttons Stacked */
+  .btn-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .6rem;
   }
 
-  /* ✅ Education buttons responsive text */
-  .btn-cert{
-    min-height:42px!important;
-    font-size:clamp(.72rem, 1.6vw, .92rem)!important;
+  .btn {
+    width: 100%;
+    padding: .68rem 1.05rem !important;
+    min-height: 44px !important;
   }
 
-  /* ✅ Education: TWO side by side */
-  .education-grid{
-    grid-template-columns:repeat(2, minmax(0,1fr))!important;
-    gap:1.1rem!important;
+  /* Grids */
+  .education-grid, .modern-skills-grid, .services-grid, .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.1rem !important;
   }
 
-  /* Projects: ONE per row */
-  .projects-grid{grid-template-columns:1fr!important;}
+  .projects-grid { grid-template-columns: 1fr !important; }
+}
 
-  /* Other grids: 2 cols */
-  .modern-skills-grid,
-  .services-grid,
-  .contact-grid{
-    grid-template-columns:repeat(2, minmax(0,1fr))!important;
-    gap:1.1rem!important;
+/* D) Mobiles <= 576px (إصلاح اختفاء الصورة هنا) */
+@media (max-width: 576px) {
+  :root {
+    --nav-btn: 38px;
+    --nav-icon: 18px;
+    --btn-pad-y: .78rem;
+    --btn-pad-x: 1.05rem;
+  }
+
+  .navbar {
+    width: 100% !important;
+    top: 0 !important;
+    border-radius: 0 0 18px 18px !important;
+    height: 64px;
+  }
+
+  /* Hero Visual Fix */
+  .hero-visual {
+    order: -1 !important;
+    width: 100% !important;
+    max-width: 280px !important; /* تحديد عرض مناسب للموبايل */
+    margin: 0 auto 1rem auto !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .profile-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .profile-img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important; /* تجعل الصورة متناسقة */
+    object-fit: cover !important; 
+    border-radius: 15px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Full Width Buttons */
+  .btn-group, .project-actions-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .7rem;
+  }
+
+  .btn, .btn-proj {
+    width: 100% !important;
+    height: 48px !important;
+  }
+
+  /* All Grids to Single Column */
+  .education-grid, .projects-grid, .modern-skills-grid, .services-grid, .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .status-badge {
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 
-/* D) Mobiles <= 576 */
-@media (max-width:576px){
-  :root{
-    --nav-btn:38px;
-    --nav-icon:18px;
-    --btn-pad-y:.78rem;
-    --btn-pad-x:1.05rem;
-  }
-
-  /* Navbar becomes top bar */
-  .navbar{
-    width:100%!important;
-    top:0!important;
-    border-radius:0 0 18px 18px!important;
-    height:64px;
-  }
-  .nav-container{padding:0 1rem!important;}
-  .logo{font-size:1.05rem;}
-
-  /* Hero */
-  .hero-visual{max-width:290px!important;}
-  .profile-img{aspect-ratio:3 / 4;}
-
-  /* Buttons full width */
-  .btn-group{
-    width:100%;
-    flex-direction:column;
-    align-items:stretch;
-    gap:.6rem;
-  }
-  .btn-group .btn{width:100%;}
-
-  /* Project buttons full width */
-  .project-actions-row{flex-direction:column;}
-  .btn-proj{width:100%;height:48px!important;font-size:.86rem!important;}
-
-  /* Grids: 1 col */
-  .education-grid,
-  .projects-grid,
-  .modern-skills-grid,
-  .services-grid,
-  .contact-grid{
-    grid-template-columns:1fr!important;
-  }
-
-  /* badge centered */
-  .status-badge{
-    bottom:-12px;
-    right:50%;
-    transform:translateX(50%);
-    font-size:.72rem;
-  }
-}
-
-/* Touch devices: disable lift */
-@media (hover:none){
+/* E) Touch Devices: Disable Hover Animations */
+@media (hover: none) {
   .certificate-card:hover,
   .skill-module-v3:hover,
   .service-card-modern:hover,
   .project-card:hover,
   .contact-card:hover,
-  .btn:hover,
-  .btn-cert:hover,
-  .btn-proj:hover{
-    transform:none;
-    box-shadow:none;
+  .btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
+}
+
+/* ============================================================
+   Global Image Fix - ضمان عدم انهيار أي صورة
+============================================================ */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* -----------------------------------------------------------
+   15) Responsive Stages - الإصلاح النهائي والشامل
+----------------------------------------------------------- */
+
+/* A) Big screens (Default) - لا تغيير */
+
+/* B) Tablets & Down (Under 992px) */
+@media (max-width: 992px) {
+  :root {
+    --nav-btn: 40px;
+    --btn-pad-y: .82rem;
+  }
+
+  section { padding: 4rem 0; }
+
+  /* 1. إصلاح الحاوية الكبرى للهيرو */
+  .hero {
+    display: block !important; /* إلغاء الفليكس الأساسي لمنع التداخل */
+    height: auto !important;
+    min-height: auto !important;
+    padding-top: calc(var(--nav-height) + 3rem) !important;
+    overflow: visible !important;
+  }
+
+  /* 2. تحويل الجريد إلى فليكس عمودي */
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2.5rem !important;
+    width: 100% !important;
+  }
+
+  /* 3. جعل النص يأتي بعد الصورة */
+  .hero-text {
+    order: 2 !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+
+  .hero-description {
+    margin-inline: auto !important;
+    max-width: 50ch !important;
+  }
+
+  /* 4. إصلاح منطقة الصورة (ضمان الظهور) */
+  .hero-visual {
+    order: 1 !important; /* الصورة أولاً */
+    width: 100% !important;
+    max-width: 380px !important; /* حجم متوازن للتابلت */
+    margin: 0 auto !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .profile-card {
+    padding: 0.7rem !important;
+    width: 100% !important;
+    background: var(--bg-card); /* ضمان ظهور الكارت */
+  }
+
+  .profile-img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/5 !important; /* نفس النسبة في كودك الأساسي */
+    object-fit: cover !important;
+    border-radius: 15px !important;
+    display: block !important;
+  }
+
+  .btn-group {
+    justify-content: center !important;
+  }
+}
+
+/* C) Small Tablet (Under 768px) */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem) !important;
+  }
+
+  /* تحويل جميع الشبكات لعمود واحد لراحة العين */
+  .education-grid, 
+  .projects-grid, 
+  .modern-skills-grid, 
+  .services-grid, 
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.2rem !important;
+  }
+}
+
+/* D) Mobiles (Under 576px) */
+@media (max-width: 576px) {
+  .navbar {
+    width: 100% !important;
+    border-radius: 0 0 15px 15px !important;
+  }
+
+  .hero-visual {
+    max-width: 300px !important; /* حجم مثالي للموبايل */
+  }
+
+  .hero-text h1 {
+    font-size: 1.75rem !important;
+  }
+
+  /* سنترة البدج (Status Badge) */
+  .status-badge {
+    bottom: 1rem !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    width: max-content !important;
+    font-size: 0.7rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
+
+  /* أزرار الهيرو تحت بعضها */
+  .btn-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.8rem !important;
+  }
+
+  .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* E) إصلاحات عامة للمس (Touch Fixes) */
+@media (hover: none) {
+  .profile-card:hover .profile-img,
+  .project-card:hover,
+  .btn:hover {
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* F) Global Image Fix */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
 }
